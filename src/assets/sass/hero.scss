@@ -1,0 +1,59 @@
+@import "./custom";
+@import "./font";
+
+.hero {
+  position: relative;
+  .logo {
+    padding-top: 34px;
+    position: absolute;
+    top: 2rem;
+    left: 18px;
+    border-radius: 50%;
+    width: 95px;
+    height: 95px;
+
+    img {
+      transform: scale(0.9);
+      border-radius: 50%;
+      border: 4px solid $white-color;
+    }
+  }
+  .logo-only {
+    padding-top: 8px;
+    border-radius: 50%;
+    width: 95px;
+    height: 95px;
+    margin: auto;
+    img {
+      transform: scale(0.9);
+      border-radius: 50%;
+      border: 4px solid $white-color;
+    }
+  }
+  .hero-bottom {
+    .hero-detail {
+      border: solid $blue;
+      background: $white-color;
+      border-radius: 12px;
+      border-width: 1px 1px 1px;
+      box-sizing: border-box;
+      margin-top: 14px;
+      padding: 10px;
+      word-break: keep-all;
+    }
+    img {
+      width: 1rem;
+    }
+  }
+}
+.theme-dark {
+  .hero {
+    .hero-bottom {
+      .hero-detail {
+        p {
+          color: $blue;
+        }
+      }
+    }
+  }
+}

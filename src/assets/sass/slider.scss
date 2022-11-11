@@ -1,0 +1,100 @@
+@import "./font";
+@import "./custom.scss";
+.slider {
+  .swiper {
+    border-radius: 11px 11px 0px 0px;
+    background: $white-color;
+    * {
+      outline: none;
+    }
+    .slick-arrow {
+      display: none !important;
+    }
+    .slick-list {
+      border-radius: 11px 11px 0px 0px;
+    }
+    .swiper-slide {
+      display: flex !important;
+      justify-content: center;
+      img {
+        max-height: 360px;
+        height: 100%;
+        width: 100%;
+      }
+    }
+    .slick-dots {
+      display: none;
+      position: absolute;
+      bottom: 10px;
+      display: block;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      text-align: center;
+      display: flex !important;
+      justify-content: center;
+      gap: 0.1rem;
+      li {
+        position: relative;
+        display: inline-block;
+        width: 13px;
+        height: 13px;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        button {
+          width: 10px;
+          height: 10px;
+          background-color: #151414;
+          border-radius: 50%;
+          color: #151414;
+          border: none;
+          cursor: pointer;
+          opacity: 0.75;
+          transition: all 0.5s ease-in-out;
+          font-size: 0px;
+        }
+      }
+      li.slick-active button {
+        opacity: 1;
+        width: 13px;
+        height: 13px;
+      }
+    }
+  }
+  .swiper-content {
+    border: 2px solid $blue;
+    border-top: transparent;
+    border-radius: 0px 0px 12px 12px;
+    padding: 10px 8px;
+    margin-top: -4px;
+    p {
+      font-family: "Cairo";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 19px;
+      line-height: 127.9%;
+      color: #222222;
+    }
+  }
+}
+.theme-dark {
+  .slider {
+    .swiper {
+      border: 2px solid #fff;
+      border-bottom: transparent;
+      .img {
+        border-bottom: 1px solid #fff;
+      }
+    }
+    .swiper-content {
+      border: 2px solid #fff;
+      P {
+        color: $white-color;
+      }
+    }
+  }
+}

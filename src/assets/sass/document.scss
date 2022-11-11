@@ -1,0 +1,94 @@
+.document {
+  .pdf {
+    position: relative;
+    transition: 1000ms ease;
+    .react-pdf__Page__annotations {
+      display: none;
+    }
+    .react-pdf__Page__textContent {
+      display: none;
+    }
+    .react-pdf__Page {
+      transition: 1000ms ease;
+    }
+    .react-pdf__message {
+      display: none;
+    }
+    #prev-page,
+    #next-page {
+      display: none;
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -22px;
+      color: rgba(0, 0, 0, 0.8);
+      font-weight: bold;
+      font-size: 18px;
+      transition: 600ms ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+      background-color: transparent;
+      border: none;
+      z-index: 2;
+    }
+
+    /* Position the "next button" to the right */
+    #next-page {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    /* On hover, add a black background color with a little bit see-through */
+    #prev-page:hover,
+    #next-page:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+      color: #fff;
+    }
+    .react-pdf__Document {
+      width: 100%;
+      height: 100%;
+      .react-pdf__Page {
+        width: 100%;
+        height: 100%;
+        .react-pdf__Page__canvas {
+          width: 100% !important;
+          height: 100% !important;
+          z-index: 3;
+        }
+        .react-pdf__Page__textContent {
+          z-index: -1;
+        }
+      }
+    }
+  }
+  .pdf:has(.rpv-core__inner-pages):hover {
+    transition: 1000ms ease;
+    #prev-page,
+    #next-page {
+      display: block;
+    }
+  }
+  .rpv-core__doc-loading {
+    height: 300px !important;
+  }
+  .rpv-core__page-layer {
+    height: 400px !important;
+    width: 100% !important;
+  }
+  .rpv-core__canvas-layer {
+    height: 100% !important;
+    width: 100% !important;
+  }
+  canvas {
+    width: 100% !important;
+    height: 100% !important;
+  }
+  .rpv-core__inner-pages {
+    height: 400px !important;
+  }
+  .rpv-core__inner-pages::-webkit-scrollbar {
+    display: none;
+  }
+}
