@@ -3,7 +3,7 @@
 .card-section {
   .card {
     background: $secondary-color;
-    border: 1px solid $primary-color;
+    border: 1px solid $secondary-color;
     position: relative;
     text-align: center;
     border-radius: 8px;
@@ -58,7 +58,7 @@
 .theme-dark {
   .card-section {
     .card {
-      border: 1px solid $white-color;
+      border: 0.6px solid $white-color;
     }
     .youtube {
       .card {

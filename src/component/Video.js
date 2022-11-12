@@ -12,7 +12,7 @@ export default function Video({ data }) {
 
   return (
     <>
-      <div className="youtube mt-4">
+      <div className="youtube mt-4 slider">
         <iframe
           className="youtube_video"
           src={`https://www.youtube-nocookie.com/embed/${url}?mute=1&modestbranding=0"`}
@@ -20,6 +20,9 @@ export default function Video({ data }) {
           frameBorder="0"
           allowFullScreen
         ></iframe>
+        <div className="swiper-content">
+          <h4>{data.Name}</h4>
+        </div>
       </div>
     </>
   );

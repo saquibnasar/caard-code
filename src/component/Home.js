@@ -90,7 +90,7 @@ export default function Home() {
                       ? `, ${data.PersonalInfo.Country}`
                       : ""}
                   </h3>
-                  <div className="hero-detail banner-shadow">
+                  <div className="hero-detail">
                     <p>{data.PersonalInfo.Bio} </p>
                   </div>
                 </div>
@@ -130,7 +130,6 @@ export default function Home() {
                 <h4>CREATE YOUR MICROSITE</h4>
               </div>
             </footer>
-            {/* <SlidePresentationExample /> */}
           </>
         )}
       </div>

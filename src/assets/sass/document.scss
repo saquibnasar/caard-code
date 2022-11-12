@@ -1,5 +1,109 @@
 .document {
   .pdf {
+    .rpv-core__doc-loading {
+      height: 300px !important;
+    }
+    .rpv-core__page-layer {
+      height: 400px !important;
+      width: 100% !important;
+    }
+    .rpv-core__canvas-layer {
+      height: 100% !important;
+      width: 100% !important;
+    }
+    canvas {
+      width: 100% !important;
+      height: 100% !important;
+    }
+    .rpv-core__inner-pages {
+      height: 400px !important;
+      overflow-x: auto !important;
+      scroll-behavior: smooth;
+      border-radius: 11px 11px 0px 0px;
+    }
+    .rpv-core__inner-pages::-webkit-scrollbar {
+      display: none;
+    }
+    .rpv-core__inner-page {
+      width: 360px !important;
+      // width: 336px !important;
+      @media (max-width: 399px) {
+        width: 359px !important;
+      }
+      @media (max-width: 398px) {
+        width: 358px !important;
+      }
+      @media (max-width: 397px) {
+        width: 357px !important;
+      }
+      @media (max-width: 396px) {
+        width: 356px !important;
+      }
+      @media (max-width: 395px) {
+        width: 355px !important;
+      }
+      @media (max-width: 394px) {
+        width: 354px !important;
+      }
+      @media (max-width: 393px) {
+        width: 353px !important;
+      }
+      @media (max-width: 392px) {
+        width: 352px !important;
+      }
+      @media (max-width: 391px) {
+        width: 351px !important;
+      }
+      @media (max-width: 390px) {
+        width: 350px !important;
+      }
+      @media (max-width: 389px) {
+        width: 349px !important;
+      }
+      @media (max-width: 388px) {
+        width: 348px !important;
+      }
+      @media (max-width: 387px) {
+        width: 347px !important;
+      }
+      @media (max-width: 386px) {
+        width: 346px !important;
+      }
+      @media (max-width: 385px) {
+        width: 345px !important;
+      }
+      @media (max-width: 384px) {
+        width: 344px !important;
+      }
+      @media (max-width: 383px) {
+        width: 343px !important;
+      }
+      @media (max-width: 382px) {
+        width: 342px !important;
+      }
+      @media (max-width: 381px) {
+        width: 341px !important;
+      }
+      @media (max-width: 380px) {
+        width: 340px !important;
+      }
+      @media (max-width: 379px) {
+        width: 339px !important;
+      }
+      @media (max-width: 378px) {
+        width: 338px !important;
+      }
+      @media (max-width: 377px) {
+        width: 337px !important;
+      }
+      @media (max-width: 376px) {
+        width: 336px !important;
+      }
+      @media (max-width: 375px) {
+        width: 335px !important;
+      }
+    }
+
     position: relative;
     transition: 1000ms ease;
     .react-pdf__Page__annotations {
@@ -63,32 +167,18 @@
       }
     }
   }
+  .swiper-content {
+    position: relative;
+  }
+  .rpv-core__viewer {
+    height: 400px !important;
+  }
+
   .pdf:has(.rpv-core__inner-pages):hover {
     transition: 1000ms ease;
     #prev-page,
     #next-page {
       display: block;
     }
-  }
-  .rpv-core__doc-loading {
-    height: 300px !important;
-  }
-  .rpv-core__page-layer {
-    height: 400px !important;
-    width: 100% !important;
-  }
-  .rpv-core__canvas-layer {
-    height: 100% !important;
-    width: 100% !important;
-  }
-  canvas {
-    width: 100% !important;
-    height: 100% !important;
-  }
-  .rpv-core__inner-pages {
-    height: 400px !important;
-  }
-  .rpv-core__inner-pages::-webkit-scrollbar {
-    display: none;
   }
 }

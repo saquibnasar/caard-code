@@ -32,10 +32,10 @@
   }
   .hero-bottom {
     .hero-detail {
-      border: solid $blue;
-      background: $white-color;
+      border: solid $white-color;
+      background: $secondary-color;
       border-radius: 12px;
-      border-width: 1px 1px 1px;
+      border-width: 0.6px 0.6px 0.6px;
       box-sizing: border-box;
       margin-top: 14px;
       padding: 10px;
@@ -43,17 +43,6 @@
     }
     img {
       width: 1rem;
-    }
-  }
-}
-.theme-dark {
-  .hero {
-    .hero-bottom {
-      .hero-detail {
-        p {
-          color: $blue;
-        }
-      }
     }
   }
 }

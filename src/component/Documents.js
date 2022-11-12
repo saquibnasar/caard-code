@@ -1,105 +1,91 @@
-import { Document, Page, pdfjs } from "react-pdf";
-import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import { useState } from "react";
-import pdfImage from "../assets/images/pdf.png";
 import downloadImage from "../assets/images/download.png";
-
+import "@react-pdf-viewer/core/lib/styles/index.css";
 import { Worker } from "@react-pdf-viewer/core";
 import { Viewer } from "@react-pdf-viewer/core";
-import "@react-pdf-viewer/core/lib/styles/index.css";
 
 import { pageNavigationPlugin } from "@react-pdf-viewer/page-navigation";
-import { RenderGoToPageProps } from "@react-pdf-viewer/page-navigation";
+import { ScrollMode } from "@react-pdf-viewer/core";
 
-// import { ScrollMode } from "@react-pdf-viewer/core";
-// import { ScrollMode } from "@react-pdf-viewer/core";
 export default function Documents({ data }) {
-  // Your render function
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPage, setTotalPage] = useState(1);
 
   const pageNavigationPluginInstance = pageNavigationPlugin();
 
-  const { GoToNextPage, GoToPreviousPage } = pageNavigationPluginInstance;
+  const { CurrentPageLabel } = pageNavigationPluginInstance;
 
-  const [numPages, setNumPages] = useState(null);
-  const [pageNumber, setPageNumber] = useState(1);
+  const pdfHolder = document.querySelector(".rpv-core__inner-pages");
+  const pdf = document.querySelectorAll(".rpv-core__inner-page");
 
-  pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
+  const goToNextPage = (currentPage, totalPage) => {
+    if (pdfHolder && !(currentPage === totalPage)) {
+      const pdfNum = pdf[0].style.width.split("px")[0];
+      const pdfLeft = pdfHolder.scrollLeft;
+      pdfHolder.scrollLeft = pdfLeft + parseFloat(pdfNum);
+      setCurrentPage(currentPage + 1);
+    }
+  };
 
-  function onDocumentLoadSuccess({ numPages }) {
-    setNumPages(numPages);
-  }
-
-  function removeTextLayerOffset() {
-    const textLayers = document.querySelectorAll(
-      ".react-pdf__Page__textContent"
-    );
-    textLayers.forEach((layer) => {
-      const { style } = layer;
-      style.top = "0";
-      style.left = "0";
-      style.transform = "";
-    });
-  }
+  const goToPreviousPage = (currentPage) => {
+    if (pdfHolder && !(currentPage === 1)) {
+      const pdfNum = pdf[0].style.width.split("px")[0];
+      if (currentPage === 2) {
+        pdfHolder.scrollLeft = parseFloat(pdfNum);
+      }
+      const pdfLeft = pdfHolder.scrollLeft;
+      pdfHolder.scrollLeft = pdfLeft - parseFloat(pdfNum);
+      setCurrentPage(currentPage - 1);
+    }
+  };
+  const totalPageNumber = (pageNum) => {
+    setTotalPage(pageNum);
+  };
 
   return (
     <>
-      <div className="document mt-4">
-        <div className="card mt-0 round-bottom-0">
-          <div className="card_icon bg-bannner">
-            <img className="img-fluid pdf" src={pdfImage} alt="" />
-          </div>
-          <p>{data.Title}</p>
+      <div className="document mt-4 slider">
+        <div className="pdf">
+          <button
+            id="prev-page"
+            onClick={() => {
+              goToPreviousPage(currentPage);
+            }}
+          >
+            ❮
+          </button>
+          <button
+            id="next-page"
+            onClick={() => {
+              goToNextPage(currentPage, totalPage);
+            }}
+          >
+            ❯
+          </button>
+
+          <CurrentPageLabel>
+            {(RenderCurrentPageLabelProps) =>
+              totalPageNumber(RenderCurrentPageLabelProps.numberOfPages)
+            }
+          </CurrentPageLabel>
+
+          <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.0.279/build/pdf.worker.min.js">
+            <div style={!pdfHolder ? { height: "300px" } : {}}>
+              <Viewer
+                fileUrl={data.URL}
+                scrollMode={ScrollMode.Horizontal}
+                enablePaging={true}
+                horizontal={true}
+                plugins={[pageNavigationPluginInstance]}
+              />
+            </div>
+          </Worker>
+        </div>
+        <div className="swiper-content border-top-0">
+          <h4>{data.Name}</h4>
           <a className="download-btn" href={data.URL} download={data.URL}>
             <img className="img-fluid" src={downloadImage} alt="" />
           </a>
-        </div>
-        <div className="pdf">
-          {/* {!numPages ? (
-            <div className="loading-section pdf-loader">
-              <div className="loading"></div>
-            </div>
-          ) : (
-            <>
-             
-            </>
-          )} */}
-          {/* <Document file={data.URL} onLoadSuccess={onDocumentLoadSuccess}>
-            <Page
-              pageNumber={pageNumber}
-              onLoadSuccess={removeTextLayerOffset}
-            />
-          </Document> */}
-
-          <GoToPreviousPage>
-            {(RenderGoToPageProps) => (
-              <button
-                id="prev-page"
-                disabled={RenderGoToPageProps.isDisabled}
-                onClick={RenderGoToPageProps.onClick}
-              >
-                ❮
-              </button>
-            )}
-          </GoToPreviousPage>
-          <GoToNextPage>
-            {(RenderGoToPageProps) => (
-              <button
-                id="next-page"
-                disabled={RenderGoToPageProps.isDisabled}
-                onClick={RenderGoToPageProps.onClick}
-              >
-                ❯
-              </button>
-            )}
-          </GoToNextPage>
-
-          <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.0.279/build/pdf.worker.min.js">
-            <Viewer
-              fileUrl={data.URL}
-              plugins={[pageNavigationPluginInstance]}
-              // scrollMode={ScrollMode.Horizontal}
-            />
-          </Worker>
         </div>
       </div>
     </>

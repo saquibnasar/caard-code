@@ -1,11 +1,12 @@
 @import "./font";
 
-$primary-color: #000;
+$primary-color: #000000;
 $secondary-color: #303130;
 $white-color: #fff;
 $black-color: #000;
 $blue: #0e334c;
 $fontCairo: "Cairo", sans-serif;
+$fontOpenSans: "Cairo", sans-serif;
 
 * {
   margin: 0;
@@ -24,7 +25,7 @@ body {
 }
 .main-container.theme-dark {
   // background: #4b4b4b;
-  background: #363636;
+  background: #252525;
 }
 
 .d-none {
@@ -32,6 +33,16 @@ body {
 }
 .d-flex {
   display: flex !important;
+}
+.d-block {
+  display: block !important;
+}
+
+.round-0 {
+  border-radius: 0px !important;
+}
+.border-top-0 {
+  border-top: 0px !important;
 }
 .img-fluid {
   max-width: 100%;
@@ -91,7 +102,6 @@ a {
   h4,
   h5,
   h6,
-  p,
   a {
     color: $white-color;
   }
@@ -126,7 +136,7 @@ h4 {
   padding: 4px 0 10px;
 }
 p {
-  color: $blue;
+  color: $white-color;
   font-weight: 400;
   font-size: 14px;
   line-height: 127.9%;
@@ -153,16 +163,22 @@ a {
   transform: translateY(-50%);
 }
 .youtube {
-  height: 204px;
   border-radius: 8px;
-
+  border: 0.6px solid #9c9c9c !important;
+  background: #252525;
   .youtube_video {
-    height: 100%;
+    height: 204px;
     width: 100%;
     border-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
     ::slotted(.ytp-show-cards-title) {
       display: none !important;
     }
+  }
+  .swiper-content {
+    border-top: 0.6px solid #9c9c9c !important;
+    border: none !important;
   }
 }
 
