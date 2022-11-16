@@ -21,7 +21,7 @@ export default function Video({ data }) {
           allowFullScreen
         ></iframe>
         <div className="swiper-content">
-          <h4>{data.Name}</h4>
+          <h4>{data.Title ? data.Title : data.Name}</h4>
         </div>
       </div>
     </>

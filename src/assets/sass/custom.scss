@@ -37,6 +37,12 @@ body {
 .d-block {
   display: block !important;
 }
+.w-0 {
+  width: 0px;
+}
+.h-0 {
+  height: 0px;
+}
 
 .round-0 {
   border-radius: 0px !important;
@@ -56,6 +62,9 @@ body {
 }
 .mt-5 {
   margin-top: 3rem !important;
+}
+.mt-2rem {
+  margin-top: 2rem;
 }
 .mt-4 {
   margin-top: 1.5rem !important;

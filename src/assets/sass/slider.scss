@@ -1,5 +1,6 @@
 @import "./font";
 @import "./custom.scss";
+
 .slider {
   border: 0.6px solid #fff;
   border-radius: 11px 11px 11px 11px;
@@ -65,6 +66,11 @@
         width: 13px;
         height: 13px;
       }
+    }
+  }
+  .slick-list-border-0 {
+    .slick-list {
+      border-radius: 0px;
     }
   }
   .swiper-content {

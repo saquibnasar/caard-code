@@ -5,11 +5,21 @@ import Video from "./Video";
 import ImgSlider from "./ImgSlider";
 import Documents from "./Documents";
 import { useParams } from "react-router-dom";
-// import SlidePresentationExample from "./SlidePresentationExample";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
 
 export default function Home() {
   const { userId } = useParams();
   const [data, setData] = useState();
+
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
+
   useEffect(() => {
     fetch(
       `https://7drkndiu7g.execute-api.ap-south-1.amazonaws.com/v1/previewprofile/${userId}`
@@ -29,6 +39,7 @@ export default function Home() {
     theme = data.Theme.toLowerCase();
     modeData = data.BusinessLinks;
     hero = JSON.parse(data.PersonalInfo.CoverImageLocation);
+
     logo = data.PersonalInfo.ImageLocation;
 
     if (data.Mode === "Personal") {
@@ -47,41 +58,45 @@ export default function Home() {
           <>
             <section className="hero">
               {hero.length ? (
-                <img className="img-fluid" src={hero} alt="" />
+                <div className="slider round-0">
+                  <div className="swiper mySwiper round-0 slick-list-border-0">
+                    <div className="swiper-wrapper round-0">
+                      <Slider {...settings}>
+                        {hero.map((value, id) => {
+                          return (
+                            <div key={id} className="swiper-slide">
+                              <img
+                                className="img-fluid"
+                                src={value.URL}
+                                alt=""
+                              />
+                            </div>
+                          );
+                        })}
+                      </Slider>
+                    </div>
+                  </div>
+                </div>
               ) : (
                 ""
               )}
-
+              {logo ? (
+                <div className={hero.length ? "logo" : "logo-only text-center"}>
+                  <img
+                    className="img-fluid"
+                    src={data.PersonalInfo.ImageLocation}
+                    alt=""
+                  />
+                </div>
+              ) : (
+                ""
+              )}
               <div
                 className={
                   logo && !hero.length ? "container text-center" : "container"
                 }
               >
-                {logo ? (
-                  <div className="hero-top">
-                    <div
-                      className={
-                        hero.length
-                          ? "logo-only text-center"
-                          : "logo-only text-center"
-                      }
-                    >
-                      <img
-                        className="img-fluid"
-                        src={data.PersonalInfo.ImageLocation}
-                        alt=""
-                      />
-                    </div>
-                  </div>
-                ) : (
-                  ""
-                )}
-
-                <div
-                  className={
-                    hero || logo ? "hero-bottom mt-3" : "hero-bottom mt-5"
-                  }
-                >
+                <div className={hero.length && logo ? "mt-2rem" : "mt-3"}>
                   <h1>{data.PersonalInfo.Name}</h1>
                   <h2>{data.PersonalInfo.Work}</h2>
                   <h3>
@@ -98,8 +113,12 @@ export default function Home() {
             </section>
             <section className="card-section">
               <div className="container">
-                {JSON.parse(modeData.StandardLinks.Links).length ? (
-                  <Card data={JSON.parse(modeData.StandardLinks.Links)} />
+                {JSON.parse(modeData.StandardLinks.Links).length ||
+                JSON.parse(modeData.CustomLinks.Links).length ? (
+                  <Card
+                    StandardLinks={JSON.parse(modeData.StandardLinks.Links)}
+                    CustomLinks={JSON.parse(modeData.CustomLinks.Links)}
+                  />
                 ) : (
                   ""
                 )}

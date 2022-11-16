@@ -2,6 +2,7 @@
   .pdf {
     .rpv-core__doc-loading {
       height: 300px !important;
+      border-radius: 11px 11px 0px 0px;
     }
     .rpv-core__page-layer {
       height: 400px !important;
@@ -126,16 +127,15 @@
       top: 50%;
       width: auto;
       padding: 16px;
-      margin-top: -22px;
-      color: rgba(0, 0, 0, 0.8);
+      background-color: rgba(0, 0, 0, 0.8);
       font-weight: bold;
       font-size: 18px;
       transition: 600ms ease;
       border-radius: 0 3px 3px 0;
       user-select: none;
-      background-color: transparent;
       border: none;
       z-index: 2;
+      color: #fff;
     }
 
     /* Position the "next button" to the right */
@@ -147,8 +147,8 @@
     /* On hover, add a black background color with a little bit see-through */
     #prev-page:hover,
     #next-page:hover {
-      background-color: rgba(0, 0, 0, 0.8);
-      color: #fff;
+      background-color: #393b3f;
+      color: $white-color;
     }
     .react-pdf__Document {
       width: 100%;
