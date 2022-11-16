@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Card from "./Card";
 import Loader from "./Loader";
 import Video from "./Video";
+import Footer from "./Footer";
 import ImgSlider from "./ImgSlider";
 import Documents from "./Documents";
 import { useParams } from "react-router-dom";
@@ -35,18 +36,46 @@ export default function Home() {
   let theme;
   let hero;
   let logo;
+  let mainText;
+  let primaryText;
+  let subText;
   if (!(data === undefined)) {
     theme = data.Theme.toLowerCase();
     modeData = data.BusinessLinks;
     hero = JSON.parse(data.PersonalInfo.CoverImageLocation);
-
     logo = data.PersonalInfo.ImageLocation;
+
+    let bioText = data.PersonalInfo.Bio.trim().split(" ");
+
+    primaryText = [];
+    subText = [];
+    bioText.map((value) => {
+      if (primaryText.length > 35) {
+        subText.push(value.trim());
+      } else {
+        primaryText.push(value.trim());
+      }
+      return value;
+    });
+    mainText = primaryText.join(" ");
 
     if (data.Mode === "Personal") {
       modeData = data.PersonalLinks;
     } else if (data.Mode === "Direct") {
       modeData = data.DirectLinks;
     }
+  }
+
+  const sliderBtn = document.querySelector(".hero .extra-btn");
+  const heroDetail = document.querySelector(".hero-detail p");
+
+  const showText = () => {
+    sliderBtn.classList.add("d-none");
+    heroDetail.textContent = primaryText.join(" ") + " " + subText.join(" ");
+  };
+
+  if (!(sliderBtn === null) && sliderBtn) {
+    sliderBtn.addEventListener("click", showText);
   }
 
   return (
@@ -106,7 +135,14 @@ export default function Home() {
                       : ""}
                   </h3>
                   <div className="hero-detail">
-                    <p>{data.PersonalInfo.Bio} </p>
+                    <p>
+                      {mainText}
+                      {subText.length ? (
+                        <button className="extra-btn">...more</button>
+                      ) : (
+                        ""
+                      )}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -139,16 +175,7 @@ export default function Home() {
                 )}
               </div>
             </section>
-            <footer className="footer text-center">
-              <div className="contaier">
-                <img
-                  className="img-fluid"
-                  src={theme === "dark" ? "/logo-white.png" : "/logo-black.png"}
-                  alt=""
-                />
-                <h4>CREATE YOUR MICROSITE</h4>
-              </div>
-            </footer>
+            <Footer theme={theme} />
           </>
         )}
       </div>

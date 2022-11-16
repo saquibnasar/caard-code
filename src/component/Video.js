@@ -9,6 +9,38 @@ export default function Video({ data }) {
   } else {
     url = data.URL.split("=")[1].toString().split("&")[0];
   }
+  let mainText;
+  let subText;
+  if (data.Title) {
+    let bioText = data.Title.trim().split(" ");
+
+    let primaryText = [];
+    subText = [];
+
+    bioText.map((value) => {
+      if (primaryText.length > 16) {
+        subText.push(value.trim());
+      } else {
+        primaryText.push(value.trim());
+      }
+      return value;
+    });
+
+    mainText = primaryText.join(" ");
+
+    const youtubeBtn = document.querySelector(".youtube .extra-btn");
+    const swipeContent = document.querySelector(".youtube .swiper-content h4");
+
+    const showText = () => {
+      youtubeBtn.classList.add("d-none");
+      swipeContent.textContent =
+        primaryText.join(" ") + " " + subText.join(" ");
+    };
+
+    if (!(youtubeBtn === null) && youtubeBtn) {
+      youtubeBtn.addEventListener("click", showText);
+    }
+  }
 
   return (
     <>
@@ -21,7 +53,14 @@ export default function Video({ data }) {
           allowFullScreen
         ></iframe>
         <div className="swiper-content">
-          <h4>{data.Title ? data.Title : data.Name}</h4>
+          <h4 className="w-100">
+            {mainText ? mainText : "Please add title"}
+            {subText.length ? (
+              <button className="extra-btn">...more</button>
+            ) : (
+              ""
+            )}
+          </h4>
         </div>
       </div>
     </>

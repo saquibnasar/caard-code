@@ -88,20 +88,13 @@
       width: 300px;
     }
 
-    p,
-    button,
-    span {
+    p {
       font-family: $fontOpenSans;
       font-style: normal;
       font-weight: 600;
       font-size: 16px;
       line-height: 22px;
       color: $white-color;
-    }
-    button {
-      background-color: transparent;
-      border: none;
-      cursor: pointer;
     }
   }
 }

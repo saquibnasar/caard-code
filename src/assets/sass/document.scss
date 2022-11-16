@@ -121,7 +121,7 @@
     }
     #prev-page,
     #next-page {
-      display: none;
+      // display: none;
       cursor: pointer;
       position: absolute;
       top: 50%;
@@ -174,11 +174,11 @@
     height: 400px !important;
   }
 
-  .pdf:has(.rpv-core__inner-pages):hover {
-    transition: 1000ms ease;
-    #prev-page,
-    #next-page {
-      display: block;
-    }
-  }
+  // .pdf:has(.rpv-core__inner-pages):hover {
+  //   transition: 1000ms ease;
+  //   #prev-page,
+  //   #next-page {
+  //     display: block;
+  //   }
+  // }
 }

@@ -27,6 +27,17 @@ body {
   // background: #4b4b4b;
   background: #252525;
 }
+.extra-btn {
+  font-family: $fontOpenSans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
+  color: $white-color;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
 
 .d-none {
   display: none !important;
@@ -76,7 +87,7 @@ body {
   margin-top: 0rem !important;
 }
 .w-100 {
-  width: 100%;
+  width: 100% !important;
 }
 
 .documents .document {
@@ -168,8 +179,7 @@ a {
 .card-section .download-btn {
   position: absolute;
   right: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 1rem;
 }
 .youtube {
   border-radius: 8px;

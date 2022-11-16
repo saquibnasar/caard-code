@@ -22,9 +22,8 @@ export default function Card({ StandardLinks, CustomLinks }) {
               } else if (url === "Viemo") {
                 url = "Vimeo";
               }
-
               return (
-                <a key={id} href="/" className="card">
+                <a key={id} href={value.URL} className="card" target="_blank">
                   <div className="card_icon bg-bannner">
                     <img
                       className="img-fluid"
@@ -43,12 +42,15 @@ export default function Card({ StandardLinks, CustomLinks }) {
               if (!value.isActive) {
                 return "";
               }
-              console.log(value.URL);
               return (
-                <a key={id} href="/" className="card">
-                  <div className="card_icon bg-bannner">
-                    <img className="img-fluid" src={value.URL} alt="" />
-                  </div>
+                <a key={id} href={value.URL} className="card" target="_blank">
+                  {!(value.IconUrl === undefined) ? (
+                    <div className="card_icon bg-bannner">
+                      <img className="img-fluid" src={value.IconUrl} alt="" />
+                    </div>
+                  ) : (
+                    ""
+                  )}
                   {value.Title ? value.Title : value.Name}
                 </a>
               );

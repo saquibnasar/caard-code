@@ -9,18 +9,35 @@ export default function ImgSlider({ data }) {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
-  const sliderBtn = document.querySelector(".slider .sliderBtn");
+  let dumitext = `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo rem voluptatem inventore quidem ab quisquam qui quia! Corporis, possimus ducimus!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo rem voluptatem inventore quidem ab quisquam qui quia! Corporis, possimus ducimus!`;
+
+  let bioText = dumitext.trim().split(" ");
+
+  let primaryText = [];
+  let subText = [];
+
+  bioText.map((value) => {
+    if (primaryText.length > 25) {
+      subText.push(value.trim());
+    } else {
+      primaryText.push(value.trim());
+    }
+    return value;
+  });
+
+  let mainText = primaryText.join(" ");
+  const sliderBtn = document.querySelector(".extra-btn");
+  const swipeContent = document.querySelector(".swiper-content p");
 
   const showText = () => {
-    const morePara = document.getElementById("more");
     sliderBtn.classList.add("d-none");
-    morePara.classList.remove("d-none");
-    morePara.classList.add("d-block");
+    swipeContent.textContent = primaryText.join(" ") + " " + subText.join(" ");
   };
 
   if (!(sliderBtn === null) && sliderBtn) {
     sliderBtn.addEventListener("click", showText);
   }
+
   return (
     <>
       <div className="slider mt-4">
@@ -42,13 +59,12 @@ export default function ImgSlider({ data }) {
         </div>
         <div className="swiper-content">
           <p>
-            Yes, even the drive to work, school or everyday essentials is a
-            breeze when you are so much conveniently located in the steadily
-            alive <button className="sliderBtn">...more</button>
-            <span className="d-none" id="more">
-              Yes, even the drive to work, school or everyday essentials is a
-              breeze when you are so much conveniently located in the steadily
-            </span>
+            {mainText}
+            {subText.length ? (
+              <button className="extra-btn">...more</button>
+            ) : (
+              ""
+            )}
           </p>
         </div>
       </div>
