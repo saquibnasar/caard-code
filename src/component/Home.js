@@ -8,6 +8,7 @@ import Documents from "./Documents";
 import { useParams } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
+import TextLoader from "./TextLoader";
 
 export default function Home() {
   const { userId } = useParams();
@@ -36,28 +37,29 @@ export default function Home() {
   let theme;
   let hero;
   let logo;
-  let mainText;
-  let primaryText;
-  let subText;
+  // let mainText;
+  // let primaryText;
+  // let subText;
   if (!(data === undefined)) {
     theme = data.Theme.toLowerCase();
     modeData = data.BusinessLinks;
     hero = JSON.parse(data.PersonalInfo.CoverImageLocation);
     logo = data.PersonalInfo.ImageLocation;
 
-    let bioText = data.PersonalInfo.Bio.trim().split(" ");
+    // let bioText = data.PersonalInfo.Bio.trim().split(" ");
 
-    primaryText = [];
-    subText = [];
-    bioText.map((value) => {
-      if (primaryText.length > 35) {
-        subText.push(value.trim());
-      } else {
-        primaryText.push(value.trim());
-      }
-      return value;
-    });
-    mainText = primaryText.join(" ");
+    // primaryText = [];
+    // subText = [];
+    // bioText.map((value) => {
+    //   if (primaryText.length > 35) {
+    //     subText.push(value.trim());
+    //   } else {
+    //     primaryText.push(value.trim());
+    //   }
+    //   return value;
+    // });
+
+    // mainText = primaryText.join(" ");
 
     if (data.Mode === "Personal") {
       modeData = data.PersonalLinks;
@@ -66,17 +68,19 @@ export default function Home() {
     }
   }
 
-  const sliderBtn = document.querySelector(".hero .extra-btn");
-  const heroDetail = document.querySelector(".hero-detail p");
+  // const sliderBtn = document.querySelector(".hero-detail .extra-btn");
+  // const heroDetail = document.querySelector(".hero-detail p");
 
-  const showText = () => {
-    sliderBtn.classList.add("d-none");
-    heroDetail.textContent = primaryText.join(" ") + " " + subText.join(" ");
-  };
+  // const showHeroDetail = () => {
+  //   sliderBtn.classList.add("d-none");
+  //   heroDetail.textContent = primaryText.join(" ") + " " + subText.join(" ");
+  // };
 
-  if (!(sliderBtn === null) && sliderBtn) {
-    sliderBtn.addEventListener("click", showText);
-  }
+  // if (sliderBtn) {
+  //   console.log("sliderBTn");
+  //   sliderBtn.addEventListener("click", showHeroDetail);
+  // }
+  // console.log(sliderBtn);
 
   return (
     <>
@@ -135,13 +139,19 @@ export default function Home() {
                       : ""}
                   </h3>
                   <div className="hero-detail">
-                    <p>
-                      {mainText}
+                    <p id="hero__para">
+                      {/* {mainText}
                       {subText.length ? (
                         <button className="extra-btn">...more</button>
                       ) : (
                         ""
-                      )}
+                      )} */}
+                      <TextLoader
+                        text={data.PersonalInfo.Bio}
+                        id="hero__para"
+                        wordNumber="35"
+                        btnClass="hero__btn"
+                      />
                     </p>
                   </div>
                 </div>

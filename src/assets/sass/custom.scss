@@ -6,7 +6,7 @@ $white-color: #fff;
 $black-color: #000;
 $blue: #0e334c;
 $fontCairo: "Cairo", sans-serif;
-$fontOpenSans: "Cairo", sans-serif;
+$fontOpenSans: "Open Sans", sans-serif;
 
 * {
   margin: 0;
@@ -37,6 +37,17 @@ body {
   background-color: transparent;
   border: none;
   cursor: pointer;
+}
+.youtube__btn {
+  font-size: 20px;
+}
+.hero__btn {
+  font-weight: 400;
+  font-size: 14px;
+}
+.slider__btn {
+  font-weight: 600;
+  font-size: 16px;
 }
 
 .d-none {

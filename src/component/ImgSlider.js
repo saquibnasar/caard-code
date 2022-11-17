@@ -1,6 +1,7 @@
 import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
+import TextLoader from "./TextLoader";
 export default function ImgSlider({ data }) {
   const settings = {
     dots: true,
@@ -9,34 +10,8 @@ export default function ImgSlider({ data }) {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
-  let dumitext = `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo rem voluptatem inventore quidem ab quisquam qui quia! Corporis, possimus ducimus!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo rem voluptatem inventore quidem ab quisquam qui quia! Corporis, possimus ducimus!`;
-
-  let bioText = dumitext.trim().split(" ");
-
-  let primaryText = [];
-  let subText = [];
-
-  bioText.map((value) => {
-    if (primaryText.length > 25) {
-      subText.push(value.trim());
-    } else {
-      primaryText.push(value.trim());
-    }
-    return value;
-  });
-
-  let mainText = primaryText.join(" ");
-  const sliderBtn = document.querySelector(".extra-btn");
-  const swipeContent = document.querySelector(".swiper-content p");
-
-  const showText = () => {
-    sliderBtn.classList.add("d-none");
-    swipeContent.textContent = primaryText.join(" ") + " " + subText.join(" ");
-  };
-
-  if (!(sliderBtn === null) && sliderBtn) {
-    sliderBtn.addEventListener("click", showText);
-  }
+  const test =
+    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum aliquam eaque, quo vitae hic placeat eius ullam doloremque dicta sit iste ratione explicabo enim cum. Sint quo veritatis aliquid deserunt atque suscipit saepe reprehenderit repellendus ullam. Voluptatem doloremque nobis ex voluptatum repellendus ullam pariatur voluptate!";
 
   return (
     <>
@@ -58,13 +33,13 @@ export default function ImgSlider({ data }) {
           <h4>{data[0].Title}</h4>
         </div>
         <div className="swiper-content">
-          <p>
-            {mainText}
-            {subText.length ? (
-              <button className="extra-btn">...more</button>
-            ) : (
-              ""
-            )}
+          <p id="slider__para">
+            <TextLoader
+              text={test}
+              id="slider__para"
+              wordNumber="15"
+              btnClass="slider__btn"
+            />
           </p>
         </div>
       </div>
