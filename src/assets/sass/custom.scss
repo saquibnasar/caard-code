@@ -193,6 +193,8 @@ a {
   top: 1rem;
 }
 .youtube {
+  display: flex;
+  flex-direction: column;
   border-radius: 8px;
   border: 0.6px solid #9c9c9c !important;
   background: #252525;

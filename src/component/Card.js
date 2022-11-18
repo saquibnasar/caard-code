@@ -8,6 +8,7 @@ export default function Card({ StandardLinks, CustomLinks }) {
               if (!value.isActive) {
                 return "";
               }
+              let link = `https://${value.URL}`;
               let url = value.Name;
               if (url === "Whatsapp group") {
                 url = "Whatsapp";
@@ -21,9 +22,22 @@ export default function Card({ StandardLinks, CustomLinks }) {
                 url = "Youtube_music";
               } else if (url === "Viemo") {
                 url = "Vimeo";
+              } else if (url === "Phone") {
+                link = `tel:${value.URL}`;
+              } else if (url === "Whatsapp") {
+                link = `https://wa.me/${value.URL}`;
+              } else if (url === "Gmail") {
+                link = `mailto:${value.URL}`;
               }
+
               return (
-                <a key={id} href={value.URL} className="card" target="_blank">
+                <a
+                  key={id}
+                  href={link}
+                  className="card"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <div className="card_icon bg-bannner">
                     <img
                       className="img-fluid"
@@ -31,7 +45,7 @@ export default function Card({ StandardLinks, CustomLinks }) {
                       alt=""
                     />
                   </div>
-                  {value.Title ? value.Title : value.Name}
+                  <p>{value.Title ? value.Title : value.Name}</p>
                 </a>
               );
             })
@@ -51,7 +65,7 @@ export default function Card({ StandardLinks, CustomLinks }) {
                   ) : (
                     ""
                   )}
-                  {value.Title ? value.Title : value.Name}
+                  <p>{value.Title ? value.Title : value.Name}</p>
                 </a>
               );
             })

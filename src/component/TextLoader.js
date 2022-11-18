@@ -1,8 +1,8 @@
 import React from "react";
+import { useState } from "react";
 
 export default function TextLoader({ text, id, wordNumber, btnClass }) {
   let bioText = text.trim().split(" ");
-
   let primaryText = [];
   let subText = [];
 
@@ -15,16 +15,17 @@ export default function TextLoader({ text, id, wordNumber, btnClass }) {
     return value;
   });
 
-  let mainText = primaryText.join(" ");
+  const [changeText, setChangeText] = useState(primaryText.join(" "));
 
   const showHeroDetail = () => {
-    let heroDetail = document.getElementById(id);
-    heroDetail.textContent = primaryText.join(" ") + " " + subText.join(" ");
+    setChangeText(changeText + subText.join(" "));
+    const extraBtn = document.querySelector(`#${id} .extra-btn`);
+    extraBtn.classList.add("d-none");
   };
 
   return (
     <>
-      {mainText}
+      {changeText}
       {subText.length ? (
         <button className={`extra-btn ${btnClass}`} onClick={showHeroDetail}>
           ...more

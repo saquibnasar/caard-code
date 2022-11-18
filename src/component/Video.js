@@ -19,16 +19,20 @@ export default function Video({ data }) {
           frameBorder="0"
           allowFullScreen
         ></iframe>
-        <div className="swiper-content">
-          <h4 className="w-100" id="youtube__para">
-            <TextLoader
-              text={data.Title}
-              id="youtube__para"
-              wordNumber="16"
-              btnClass="youtube__btn"
-            />
-          </h4>
-        </div>
+        {data.Title ? (
+          <div className="swiper-content">
+            <h4 className="w-100" id="youtube__para">
+              <TextLoader
+                text={data.Title}
+                id="youtube__para"
+                wordNumber="16"
+                btnClass="youtube__btn"
+              />
+            </h4>
+          </div>
+        ) : (
+          ""
+        )}
       </div>
     </>
   );

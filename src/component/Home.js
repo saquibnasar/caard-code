@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from "react";
-import Card from "./Card";
 import Loader from "./Loader";
-import Video from "./Video";
+
 import Footer from "./Footer";
-import ImgSlider from "./ImgSlider";
-import Documents from "./Documents";
 import { useParams } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import TextLoader from "./TextLoader";
+import CardSection from "./CardSection";
 
 export default function Home() {
   const { userId } = useParams();
   const [data, setData] = useState();
+  const [modeData, setModeData] = useState();
 
   const settings = {
     dots: false,
@@ -29,58 +28,33 @@ export default function Home() {
       .then((res) => res)
       .then((res) => res.json())
       .then((data) => {
+        if (data.Mode === "Direct") {
+          const StandardLinks = JSON.parse(
+            data.DirectLinks.StandardLinks.Links
+          );
+          const CustomLinks = JSON.parse(data.DirectLinks.CustomLinks.Links);
+          if (StandardLinks.length) {
+            window.location.replace(StandardLinks[0].URL);
+          } else if (CustomLinks.length) {
+            window.location.replace(CustomLinks[0].URL);
+          }
+        }
+        setModeData(data.BusinessLinks);
+        if (data.Mode === "Personal") {
+          setModeData(data.PersonalLinks);
+        }
         setData(data);
       });
   }, [userId]);
 
-  let modeData;
   let theme;
   let hero;
-  let logo;
-  // let mainText;
-  // let primaryText;
-  // let subText;
+  let PersonalInfo;
   if (!(data === undefined)) {
     theme = data.Theme.toLowerCase();
-    modeData = data.BusinessLinks;
     hero = JSON.parse(data.PersonalInfo.CoverImageLocation);
-    logo = data.PersonalInfo.ImageLocation;
-
-    // let bioText = data.PersonalInfo.Bio.trim().split(" ");
-
-    // primaryText = [];
-    // subText = [];
-    // bioText.map((value) => {
-    //   if (primaryText.length > 35) {
-    //     subText.push(value.trim());
-    //   } else {
-    //     primaryText.push(value.trim());
-    //   }
-    //   return value;
-    // });
-
-    // mainText = primaryText.join(" ");
-
-    if (data.Mode === "Personal") {
-      modeData = data.PersonalLinks;
-    } else if (data.Mode === "Direct") {
-      modeData = data.DirectLinks;
-    }
+    PersonalInfo = data.PersonalInfo;
   }
-
-  // const sliderBtn = document.querySelector(".hero-detail .extra-btn");
-  // const heroDetail = document.querySelector(".hero-detail p");
-
-  // const showHeroDetail = () => {
-  //   sliderBtn.classList.add("d-none");
-  //   heroDetail.textContent = primaryText.join(" ") + " " + subText.join(" ");
-  // };
-
-  // if (sliderBtn) {
-  //   console.log("sliderBTn");
-  //   sliderBtn.addEventListener("click", showHeroDetail);
-  // }
-  // console.log(sliderBtn);
 
   return (
     <>
@@ -113,11 +87,11 @@ export default function Home() {
               ) : (
                 ""
               )}
-              {logo ? (
+              {PersonalInfo.ImageLocation ? (
                 <div className={hero.length ? "logo" : "logo-only text-center"}>
                   <img
                     className="img-fluid"
-                    src={data.PersonalInfo.ImageLocation}
+                    src={PersonalInfo.ImageLocation}
                     alt=""
                   />
                 </div>
@@ -126,28 +100,28 @@ export default function Home() {
               )}
               <div
                 className={
-                  logo && !hero.length ? "container text-center" : "container"
+                  PersonalInfo.ImageLocation && !hero.length
+                    ? "container text-center"
+                    : "container"
                 }
               >
-                <div className={hero.length && logo ? "mt-2rem" : "mt-3"}>
-                  <h1>{data.PersonalInfo.Name}</h1>
-                  <h2>{data.PersonalInfo.Work}</h2>
+                <div
+                  className={
+                    hero.length && PersonalInfo.ImageLocation
+                      ? "mt-2rem"
+                      : "mt-3"
+                  }
+                >
+                  <h1>{PersonalInfo.Name}</h1>
+                  <h2>{PersonalInfo.Work}</h2>
                   <h3>
-                    {data.PersonalInfo.Location}
-                    {data.PersonalInfo.Country
-                      ? `, ${data.PersonalInfo.Country}`
-                      : ""}
+                    {PersonalInfo.Location}
+                    {PersonalInfo.Country ? `, ${PersonalInfo.Country}` : ""}
                   </h3>
                   <div className="hero-detail">
                     <p id="hero__para">
-                      {/* {mainText}
-                      {subText.length ? (
-                        <button className="extra-btn">...more</button>
-                      ) : (
-                        ""
-                      )} */}
                       <TextLoader
-                        text={data.PersonalInfo.Bio}
+                        text={PersonalInfo.Bio}
                         id="hero__para"
                         wordNumber="35"
                         btnClass="hero__btn"
@@ -157,34 +131,7 @@ export default function Home() {
                 </div>
               </div>
             </section>
-            <section className="card-section">
-              <div className="container">
-                {JSON.parse(modeData.StandardLinks.Links).length ||
-                JSON.parse(modeData.CustomLinks.Links).length ? (
-                  <Card
-                    StandardLinks={JSON.parse(modeData.StandardLinks.Links)}
-                    CustomLinks={JSON.parse(modeData.CustomLinks.Links)}
-                  />
-                ) : (
-                  ""
-                )}
-                {JSON.parse(modeData.Slider.Links).length ? (
-                  <ImgSlider data={JSON.parse(modeData.Slider.Links)} />
-                ) : (
-                  ""
-                )}
-                {modeData.Document.URL && modeData.Document.isActive ? (
-                  <Documents data={modeData.Document} />
-                ) : (
-                  ""
-                )}
-                {modeData.FeaturedVideo && modeData.FeaturedVideo.isActive ? (
-                  <Video data={modeData.FeaturedVideo} />
-                ) : (
-                  ""
-                )}
-              </div>
-            </section>
+            <CardSection modeData={modeData} />
             <Footer theme={theme} />
           </>
         )}
