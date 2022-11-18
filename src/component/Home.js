@@ -65,7 +65,7 @@ export default function Home() {
           <>
             <section className="hero">
               {hero.length ? (
-                <div className="slider round-0">
+                <div className="slider round-0 border-none">
                   <div className="swiper mySwiper round-0 slick-list-border-0">
                     <div className="swiper-wrapper round-0">
                       <Slider {...settings}>
