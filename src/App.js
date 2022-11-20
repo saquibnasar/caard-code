@@ -8,8 +8,6 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/:linkType/:userId" element={<Home />} />
-        {/* <Route path="/direct/:userId" element={<Home />} />
-        <Route path="/business/:userId" element={<Home />} /> */}
       </Routes>
     </BrowserRouter>
   );

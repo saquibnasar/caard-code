@@ -40,7 +40,7 @@ export default function Home() {
             if (filterStandardLinks.length) {
               let filterStandardLink = `https://${filterStandardLinks[0].URL}`;
               if (filterStandardLinks[0].Name === "Phone") {
-                link = `tel:${filterStandardLinks[0].URL}`;
+                filterStandardLink = `tel:${filterStandardLinks[0].URL}`;
               } else if (filterStandardLinks[0].Name === "Whatsapp") {
                 filterStandardLink = `https://wa.me/${filterStandardLinks[0].URL}`;
               } else if (filterStandardLinks[0].Name === "Gmail") {

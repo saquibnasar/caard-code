@@ -57,7 +57,13 @@ export default function Card({ StandardLinks, CustomLinks }) {
                 return "";
               }
               return (
-                <a key={id} href={value.URL} className="card" target="_blank">
+                <a
+                  key={id}
+                  href={value.URL}
+                  className="card"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {!(value.IconUrl === null) ? (
                     <div className="card_icon bg-bannner">
                       <img className="img-fluid" src={value.IconUrl} alt="" />
