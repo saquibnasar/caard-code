@@ -58,7 +58,7 @@ export default function Card({ StandardLinks, CustomLinks }) {
               }
               return (
                 <a key={id} href={value.URL} className="card" target="_blank">
-                  {!(value.IconUrl === undefined) ? (
+                  {!(value.IconUrl === null) ? (
                     <div className="card_icon bg-bannner">
                       <img className="img-fluid" src={value.IconUrl} alt="" />
                     </div>

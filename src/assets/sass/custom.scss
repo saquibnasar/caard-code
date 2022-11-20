@@ -1,7 +1,7 @@
 @import "./font";
 
 $primary-color: #000000;
-$secondary-color: #303130;
+$secondary-color: #151515;
 $white-color: #fff;
 $black-color: #000;
 $blue: #0e334c;
@@ -167,7 +167,7 @@ h4 {
   font-weight: 600;
   font-size: 14px;
   line-height: 26px;
-  padding: 4px 0 10px;
+  // padding: 4px 0 10px;
 }
 p {
   color: $white-color;
@@ -264,6 +264,6 @@ a {
 .footer {
   img {
     width: 21px;
-    margin-top: 28px;
+    margin-top: 40px;
   }
 }

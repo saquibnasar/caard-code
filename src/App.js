@@ -7,7 +7,9 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/:userId" element={<Home />} />
+        <Route path="/:linkType/:userId" element={<Home />} />
+        {/* <Route path="/direct/:userId" element={<Home />} />
+        <Route path="/business/:userId" element={<Home />} /> */}
       </Routes>
     </BrowserRouter>
   );

@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "./Card";
 import Video from "./Video";
-import ImgSlider from "./ImgSlider";
+import Slider from "./Slider";
 import Documents from "./Documents";
 export default function CardSection({ modeData }) {
   return (
@@ -18,7 +18,7 @@ export default function CardSection({ modeData }) {
             ""
           )}
           {JSON.parse(modeData.Slider.Links).length ? (
-            <ImgSlider data={JSON.parse(modeData.Slider.Links)} />
+            <Slider data={JSON.parse(modeData.Slider.Links)} />
           ) : (
             ""
           )}
