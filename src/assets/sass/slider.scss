@@ -51,9 +51,9 @@
         button {
           width: 10px;
           height: 10px;
-          background-color: #151414;
+          background-color: $white-color;
           border-radius: 50%;
-          color: #151414;
+          color: $white-color;
           border: none;
           cursor: pointer;
           opacity: 0.75;
@@ -79,29 +79,21 @@
     padding: 10px 8px;
     background: $secondary-color;
     h4 {
-      font-family: $fontOpenSans;
+      font-family: $fontCairo;
       font-style: normal;
       font-weight: 600;
       font-size: 20px;
       line-height: 30px;
       color: $white-color;
-      width: 300px;
     }
 
     p {
-      font-family: $fontOpenSans;
+      font-family: $fontCairo;
       font-style: normal;
       font-weight: 600;
       font-size: 16px;
       line-height: 22px;
       color: $white-color;
-    }
-  }
-}
-.theme-white {
-  .slider {
-    .swiper {
-      border: 1px solid $secondary-color;
     }
   }
 }

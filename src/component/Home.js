@@ -18,6 +18,8 @@ export default function Home() {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
   };
 
   useEffect(() => {
@@ -80,7 +82,12 @@ export default function Home() {
             <section className="hero">
               {hero.length ? (
                 <div className="slider border-none">
-                  <ImgSlider settings={settings} sliderImg={hero} />
+                  <ImgSlider
+                    settings={settings}
+                    sliderImg={hero}
+                    className="round-0"
+                    border="slick-list-border-0"
+                  />
                 </div>
               ) : (
                 ""

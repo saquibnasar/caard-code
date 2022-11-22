@@ -6,7 +6,7 @@ $white-color: #fff;
 $black-color: #000;
 $blue: #0e334c;
 $fontCairo: "Cairo", sans-serif;
-$fontOpenSans: "Open Sans", sans-serif;
+// $fontOpenSans: "Open Sans", sans-serif;
 
 * {
   margin: 0;
@@ -28,7 +28,7 @@ body {
   background: #252525;
 }
 .extra-btn {
-  font-family: $fontOpenSans;
+  font-family: $fontCairo;
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
@@ -262,8 +262,21 @@ a {
   }
 }
 .footer {
-  img {
+  .logo {
     width: 21px;
     margin-top: 40px;
+  }
+  .caardClub {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+    color: #222;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 26px;
+    img {
+      margin-left: 2px;
+    }
   }
 }
