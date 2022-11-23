@@ -3,27 +3,58 @@ import TextLoader from "./TextLoader";
 import ImgSlider from "./ImgSlider";
 export default function Slider({ data }) {
   const [titleNum, setTitleNum] = useState(0);
+  const [title, setTitle] = useState(data[0].Title);
+  const [subTitle, setSubTitle] = useState(data[0].SubTitle);
+  // const [titleNum, setTitleNum] = useState(0);
   const changeTextHandler = (type) => {
     const slickSlides = document.querySelectorAll(".slick-slide");
     for (const slickSlide of slickSlides) {
       if (slickSlide.classList.contains("slick-active")) {
+        let dataNum = parseInt(slickSlide.getAttribute("data-index"));
         if (type === "increase") {
           if (titleNum + 1 === data.length) {
+            setTitle(data[0].Title);
+            setSubTitle(data[0].SubTitle);
             setTitleNum(0);
           } else {
-            setTitleNum(parseInt(slickSlide.getAttribute("data-index")) + 1);
+            setTitle(
+              data[dataNum + 1] === undefined
+                ? data[0].Title
+                : data[dataNum + 1].Title
+            );
+            setSubTitle(
+              data[dataNum + 1] === undefined
+                ? data[0].SubTitle
+                : data[dataNum + 1].SubTitle
+            );
+            setTitleNum(dataNum + 1);
           }
         } else if (type === "decrease") {
           if (titleNum === 0) {
+            setTitle(data[data.length - 1].Title);
+            setSubTitle(data[data.length - 1].SubTitle);
             setTitleNum(data.length - 1);
           } else {
-            setTitleNum(parseInt(slickSlide.getAttribute("data-index")) - 1);
+            setTitle(
+              data[dataNum - 1] === undefined
+                ? data[0].Title
+                : data[dataNum - 1].Title
+            );
+            setSubTitle(
+              data[dataNum - 1] === undefined
+                ? data[0].SubTitle
+                : data[dataNum - 1].SubTitle
+            );
+            setTitleNum(dataNum - 1);
           }
         }
       }
     }
   };
+
   const changeTextDoteHandler = (event) => {
+    setTitle(data[parseInt(event.target.textContent) - 1].Title);
+    setSubTitle(data[parseInt(event.target.textContent) - 1].SubTitle);
     setTitleNum(parseInt(event.target.textContent) - 1);
   };
   const slickDots = document.querySelector(".slick-dots");
@@ -73,20 +104,19 @@ export default function Slider({ data }) {
       <div className="slider mt-4">
         <ImgSlider settings={settings} sliderImg={data} />
         <div className="swiper-content round-0">
-          <h4>
-            {data[titleNum] === undefined
-              ? data[0].Title
-              : data[titleNum].Title}
+          <h4 id="slider__title">
+            <TextLoader
+              text={title}
+              id="slider__title"
+              wordNumber="15"
+              btnClass="slider__btn"
+            />
           </h4>
         </div>
         <div className="swiper-content">
           <p id="slider__para">
             <TextLoader
-              text={
-                data[titleNum] === undefined
-                  ? data[0].SubTitle
-                  : data[titleNum].SubTitle
-              }
+              text={subTitle}
               id="slider__para"
               wordNumber="15"
               btnClass="slider__btn"

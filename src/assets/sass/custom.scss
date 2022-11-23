@@ -214,6 +214,9 @@ a {
   .swiper-content {
     border-top: 0.6px solid #9c9c9c !important;
     border: none !important;
+    h4 {
+      user-select: none;
+    }
   }
 }
 

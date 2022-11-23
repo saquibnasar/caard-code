@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 
 export default function TextLoader({ text, id, wordNumber, btnClass }) {
@@ -14,11 +14,13 @@ export default function TextLoader({ text, id, wordNumber, btnClass }) {
     }
     return value;
   });
-
   const [changeText, setChangeText] = useState(primaryText.join(" "));
+  useEffect(() => {
+    setChangeText(primaryText.join(" "));
+  }, [text]);
 
   const showHeroDetail = () => {
-    setChangeText(changeText + subText.join(" "));
+    setChangeText(text);
     const extraBtn = document.querySelector(`#${id} .extra-btn`);
     extraBtn.classList.add("d-none");
   };

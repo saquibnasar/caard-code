@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import TextLoader from "./TextLoader";
 import CardSection from "./CardSection";
 import ImgSlider from "./ImgSlider";
+import MetaDecorator from "./MetaDecorator";
 
 export default function Home() {
   const { linkType, userId } = useParams();
@@ -131,6 +132,7 @@ export default function Home() {
               </div>
             </section>
             <CardSection modeData={modeData} />
+            <MetaDecorator data={data} />
             <Footer theme={theme} />
           </>
         )}
