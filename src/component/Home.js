@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Loader from "./Loader";
-
+import { Helmet } from "react-helmet-async";
 import Footer from "./Footer";
 import { useParams } from "react-router-dom";
 import TextLoader from "./TextLoader";
@@ -131,8 +131,8 @@ export default function Home() {
                 </div>
               </div>
             </section>
+            <MetaDecorator />
             <CardSection modeData={modeData} />
-            <MetaDecorator data={data} />
             <Footer theme={theme} />
           </>
         )}
