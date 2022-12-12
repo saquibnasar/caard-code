@@ -1,0 +1,130 @@
+.fade-appear {
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.fade-appear.fade-appear-active {
+  opacity: 1;
+  transition: opacity 1000ms ease-in-out;
+}
+
+.fade-enter {
+  opacity: 1;
+  z-index: 1;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 0;
+  transition: opacity 1000ms ease-in-out;
+}
+
+// document
+
+.document_height_up-appear {
+  height: 100px;
+  z-index: 1;
+}
+.document_height_up-appear-active {
+  height: 525px;
+  transition: height 600ms ease-in-out;
+}
+.document_height_up-appear-done {
+  height: 100%;
+  transition: height 600ms ease-in-out;
+}
+
+// video
+
+.video_height_up-appear {
+  height: 50px;
+  z-index: 1;
+}
+.video_height_up-appear-active {
+  height: 271px;
+  transition: height 600ms ease-in-out;
+}
+.video_height_up-appear-done {
+  height: 100%;
+  transition: height 600ms ease-in-out;
+}
+
+// slider
+
+.slider_height_up-appear {
+  height: 100px;
+  z-index: 1;
+}
+.slider_height_up-appear-active {
+  height: 522px;
+  transition: height 600ms ease-in-out;
+}
+.slider_height_up-appear-done {
+  height: 100%;
+  transition: height 600ms ease-in-out;
+}
+
+// slide
+
+.slide-appear {
+  transform: translateY(100%);
+  z-index: 1;
+}
+.slide-appear-active {
+  transform: translateY(0%);
+  transition: transform 3000ms ease-in-out;
+}
+.slide-appear-done {
+  transform: translateY(0%);
+  transition: transform 3000ms ease-in-out;
+}
+
+// slide_Fade
+
+.slide_Fade-appear {
+  opacity: 1;
+  transform: translateY(0px);
+  z-index: 1;
+}
+.slide_Fade-appear-active {
+  opacity: 0;
+  transform: translateY(-50px);
+  transition: all 2000ms ease-in-out;
+}
+.slide_Fade-appear-done {
+  opacity: 0;
+  transform: translateY(-50px);
+  transition: all 2000ms ease-in-out;
+}
+
+// slide_effect
+
+.slide_effect {
+  animation: sliders 3000ms ease-in-out;
+}
+
+@keyframes sliders {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+// card_link
+
+.card_link-appear {
+  max-height: 145px;
+  height: 92px;
+  z-index: 1;
+}
+.card_link-appear-active {
+  max-height: 145px;
+  height: 100%;
+  transition: height 600ms;
+}
+.card_link-appear-done {
+  height: 100%;
+  transition: height 600ms ease-in-out;
+}

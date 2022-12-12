@@ -1,5 +1,10 @@
 .document {
+  overflow: hidden;
   .pdf {
+    border: 0.6px solid #9c9c9c !important;
+    border-radius: 11px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
     .rpv-core__doc-loading {
       height: 300px !important;
       border-radius: 11px 11px 0px 0px;
@@ -166,6 +171,13 @@
         }
       }
     }
+    .rpv-core__viewer {
+      height: 300px !important;
+    }
+
+    .rpv-core__viewer:has(.rpv-core__inner-pages) {
+      height: 400px !important;
+    }
   }
   .swiper-content {
     position: relative;
@@ -173,15 +185,11 @@
       width: 300px;
     }
   }
-  .rpv-core__viewer {
-    height: 400px !important;
+}
+.theme-white {
+  .document {
+    .pdf {
+      border: 0.6px solid #fff;
+    }
   }
-
-  // .pdf:has(.rpv-core__inner-pages):hover {
-  //   transition: 1000ms ease;
-  //   #prev-page,
-  //   #next-page {
-  //     display: block;
-  //   }
-  // }
 }

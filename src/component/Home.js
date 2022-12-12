@@ -5,9 +5,9 @@ import Footer from "./Footer";
 import { useParams } from "react-router-dom";
 import TextLoader from "./TextLoader";
 import CardSection from "./CardSection";
-import ImgSlider from "./ImgSlider";
+import ImgSlider from "./Links/ImgSlider";
 import MetaDecorator from "./MetaDecorator";
-
+import { CSSTransition } from "react-transition-group";
 export default function Home() {
   const { linkType, userId } = useParams();
   const [data, setData] = useState();
@@ -71,69 +71,88 @@ export default function Home() {
   let hero;
   if (!(data === undefined)) {
     hero = JSON.parse(data.CoverImageLocation);
+    const testDF = document.querySelector(".animationMOde");
+    testDF.classList.add("d-none");
   }
 
   return (
     <>
       <div className={`main-container theme-${theme}`}>
+        <Loader className="animationMOde" mode="home" />
         {modeData === undefined ? (
           <Loader />
         ) : (
           <>
-            <section className="hero">
-              {hero.length ? (
-                <div className="slider border-none">
-                  <ImgSlider
-                    settings={settings}
-                    sliderImg={hero}
-                    className="round-0"
-                    border="slick-list-border-0"
-                  />
-                </div>
-              ) : (
-                ""
-              )}
-              {data.ImageLocation ? (
-                <div className={hero.length ? "logo" : "logo-only text-center"}>
-                  <img className="img-fluid" src={data.ImageLocation} alt="" />
-                </div>
-              ) : (
-                ""
-              )}
-              <div
-                className={
-                  data.ImageLocation && !hero.length
-                    ? "container text-center"
-                    : "container"
-                }
-              >
-                <div
-                  className={
-                    hero.length && data.ImageLocation ? "mt-2rem" : "mt-3"
-                  }
-                >
-                  <h1>{data.Name}</h1>
-                  <h2>{data.Work}</h2>
-                  <h3>
-                    {data.Location}
-                    {data.Country ? `, ${data.Country}` : ""}
-                  </h3>
-                  <div className="hero-detail">
-                    <p id="hero__para">
-                      <TextLoader
-                        text={data.Bio}
-                        id="hero__para"
-                        wordNumber="35"
-                        btnClass="hero__btn"
+            <CSSTransition
+              in={true}
+              appear={true}
+              timeout={3000}
+              classNames="slide"
+            >
+              <div className="primary_container">
+                <section className="hero">
+                  {hero.length ? (
+                    <div className="slider border-none">
+                      <ImgSlider
+                        settings={settings}
+                        sliderImg={hero}
+                        className="round-0"
+                        border="slick-list-border-0"
                       />
-                    </p>
+                    </div>
+                  ) : (
+                    ""
+                  )}
+                  {data.ImageLocation ? (
+                    <div
+                      className={hero.length ? "logo" : "logo-only text-center"}
+                    >
+                      <img
+                        className="img-fluid"
+                        src={data.ImageLocation}
+                        alt=""
+                      />
+                    </div>
+                  ) : (
+                    ""
+                  )}
+                  <div className=""></div>
+                  <div
+                    className={
+                      data.ImageLocation && !hero.length
+                        ? "container text-center"
+                        : "container"
+                    }
+                  >
+                    <div
+                      className={
+                        hero.length && data.ImageLocation ? "mt-2rem" : "mt-3"
+                      }
+                    >
+                      <h1>{data.Name}</h1>
+                      <h2>{data.Work}</h2>
+                      <h3>
+                        {data.Location}
+                        {data.Country ? `, ${data.Country}` : ""}
+                      </h3>
+                      <div className="hero-detail">
+                        <pre id="hero__para">
+                          <TextLoader
+                            text={data.Bio}
+                            id="hero__para"
+                            wordNumber="35"
+                            btnClass="hero__btn"
+                          />
+                        </pre>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                </section>
+                <MetaDecorator />
+                <CardSection modeData={modeData} />
+                <Footer theme={theme} />
               </div>
-            </section>
-            <MetaDecorator />
-            <CardSection modeData={modeData} />
-            <Footer theme={theme} />
+            </CSSTransition>
           </>
         )}
       </div>

@@ -8,7 +8,10 @@ export default function Card({ StandardLinks, CustomLinks }) {
               if (!value.isActive) {
                 return "";
               }
-              let link = `https://${value.URL}`;
+              let link = `${value.URL}`;
+              {
+                /* let link = `https://${value.URL}`; */
+              }
               let url = value.Name;
               if (url === "Whatsapp group") {
                 url = "Whatsapp";
@@ -45,6 +48,7 @@ export default function Card({ StandardLinks, CustomLinks }) {
                       alt=""
                     />
                   </div>
+
                   <p>{value.Title ? value.Title : value.Name}</p>
                 </a>
               );

@@ -1,0 +1,16 @@
+.pdf-loader {
+  background: $white-color;
+  height: 50vh;
+  border: solid $blue;
+  word-break: keep-all;
+  border-width: 0px 2px 2px 2px;
+  .loading {
+    border: 2px solid #ddd;
+    border-top: 2px solid $black-color;
+  }
+}
+.theme-dark {
+  .pdf-loader {
+    border: solid $white-color;
+  }
+}

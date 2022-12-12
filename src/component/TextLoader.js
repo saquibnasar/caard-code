@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 
-export default function TextLoader({ text, id, wordNumber, btnClass }) {
+export default function TextLoader({ text, wordNumber, btnClass }) {
   let bioText = text.trim().split(" ");
   let primaryText = [];
   let subText = [];
@@ -19,10 +19,9 @@ export default function TextLoader({ text, id, wordNumber, btnClass }) {
     setChangeText(primaryText.join(" "));
   }, [text]);
 
-  const showHeroDetail = () => {
+  const showHeroDetail = (event) => {
     setChangeText(text);
-    const extraBtn = document.querySelector(`#${id} .extra-btn`);
-    extraBtn.classList.add("d-none");
+    event.target.classList.add("d-none");
   };
 
   return (

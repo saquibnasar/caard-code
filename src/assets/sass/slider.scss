@@ -2,10 +2,11 @@
 @import "./custom.scss";
 
 .slider {
-  border: 0.6px solid #fff;
   border-radius: 11px 11px 11px 11px;
   .swiper {
     border-radius: 11px 11px 0px 0px;
+    border: 0.6px solid #9c9c9c;
+    border-bottom: none;
     background: $white-color;
     * {
       outline: none;
@@ -73,8 +74,14 @@
       border-radius: 0px;
     }
   }
+  a.swiper-content {
+    text-align: center;
+    padding: 16px 0px;
+    display: block;
+    border: 0.6px solid #9c9c9c !important;
+  }
   .swiper-content {
-    border-top: 0.6px solid $white-color;
+    border: 0.6px solid #9c9c9c;
     border-radius: 0px 0px 11px 11px;
     padding: 10px 8px;
     background: $secondary-color;
@@ -94,6 +101,17 @@
       font-size: 16px;
       line-height: 22px;
       color: $white-color;
+    }
+  }
+}
+
+.theme-white {
+  .slider {
+    .swiper {
+      border: 0.6px solid $white-color;
+    }
+    .swiper-content {
+      border: 0.6px solid $white-color;
     }
   }
 }

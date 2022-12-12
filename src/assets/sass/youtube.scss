@@ -1,0 +1,24 @@
+.youtube {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  .youtube_video {
+    border: 0.6px solid #9c9c9c;
+    height: 204px;
+    width: 100%;
+    border-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    ::slotted(.ytp-show-cards-title) {
+      display: none !important;
+    }
+  }
+
+  .swiper-content {
+    border-top: 0.6px solid #9c9c9c;
+    border: none !important;
+    h4 {
+      user-select: none;
+    }
+  }
+}

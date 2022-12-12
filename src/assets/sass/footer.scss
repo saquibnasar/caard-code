@@ -1,0 +1,26 @@
+.footer {
+  padding-bottom: 1.5rem;
+  .logo {
+    width: 21px;
+    margin-top: 40px;
+  }
+  .caardClub {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #222;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 26px;
+    img {
+      margin-left: 2px;
+    }
+  }
+}
+.theme-dark {
+  .footer {
+    .caardClub {
+      color: $white-color;
+    }
+  }
+}

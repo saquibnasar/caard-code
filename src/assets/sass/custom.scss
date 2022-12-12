@@ -6,7 +6,6 @@ $white-color: #fff;
 $black-color: #000;
 $blue: #0e334c;
 $fontCairo: "Cairo", sans-serif;
-// $fontOpenSans: "Open Sans", sans-serif;
 
 * {
   margin: 0;
@@ -20,23 +19,50 @@ body {
 .main-container {
   max-width: 25rem;
   margin: 0 auto;
+  overflow: hidden;
+  background: #fff;
+}
+// .main-container.theme-dark {
+//   background: #252525;
+// }
+.primary_container {
+  width: 100%;
+  height: 100%;
   background: #efefef;
   overflow: hidden;
 }
-.main-container.theme-dark {
-  // background: #4b4b4b;
-  background: #252525;
+.theme-dark {
+  .primary_container {
+    background: #252525;
+  }
 }
 .extra-btn {
   font-family: $fontCairo;
   font-style: normal;
-  font-weight: 600;
-  font-size: 16px;
+  font-weight: 400;
+  font-size: 18px;
   line-height: 22px;
   color: $white-color;
   background-color: transparent;
   border: none;
   cursor: pointer;
+}
+.close_btn {
+  height: 50px;
+  width: 50px;
+  margin-top: 1rem;
+  border-radius: 50%;
+  font-size: 1.25rem;
+  color: #303030;
+  border: none;
+  background: $white-color;
+  cursor: pointer;
+}
+.theme-white {
+  .close_btn {
+    color: $white-color;
+    background: #303030;
+  }
 }
 .youtube__btn {
   font-size: 20px;
@@ -50,14 +76,21 @@ body {
   font-size: 16px;
 }
 
-.d-none {
-  display: none !important;
+.overflow-hidden {
+  overflow: hidden;
 }
+
 .d-flex {
   display: flex !important;
 }
+.d-none {
+  display: none !important;
+}
 .d-block {
   display: block !important;
+}
+.justify-content-center {
+  justify-content: center !important;
 }
 .w-0 {
   width: 0px;
@@ -65,7 +98,12 @@ body {
 .h-0 {
   height: 0px;
 }
-
+.h-100 {
+  height: 100%;
+}
+.cursor_pointer {
+  cursor: pointer;
+}
 .round-0 {
   border-radius: 0px !important;
 }
@@ -122,7 +160,8 @@ h4,
 h5,
 h6,
 p,
-a {
+a,
+pre {
   font-family: $fontCairo;
   font-size: 16px;
   color: $primary-color;
@@ -137,7 +176,8 @@ a {
   h4,
   h5,
   h6,
-  a {
+  a,
+  pre {
     color: $white-color;
   }
 }
@@ -168,9 +208,15 @@ h4 {
   font-weight: 600;
   font-size: 14px;
   line-height: 26px;
-  // padding: 4px 0 10px;
 }
 p {
+  color: $white-color;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 127.9%;
+  text-align: left;
+}
+pre {
   color: $white-color;
   font-weight: 400;
   font-size: 14px;
@@ -184,103 +230,31 @@ a {
   line-height: 127.9%;
   text-decoration: none;
 }
+
 .card-section p {
   color: $white-color;
   font-weight: 400;
   font-size: 18px;
   line-height: 127.9%;
   text-decoration: none;
+  z-index: 1;
 }
+
 .card-section .download-btn {
   position: absolute;
   right: 1rem;
   top: 1rem;
 }
-.youtube {
-  display: flex;
-  flex-direction: column;
-  border-radius: 8px;
-  border: 0.6px solid #9c9c9c !important;
-  background: #252525;
-  .youtube_video {
-    height: 204px;
-    width: 100%;
-    border-radius: 8px;
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
-    ::slotted(.ytp-show-cards-title) {
-      display: none !important;
-    }
-  }
-  .swiper-content {
-    border-top: 0.6px solid #9c9c9c !important;
-    border: none !important;
-    h4 {
-      user-select: none;
-    }
-  }
+
+.testbita {
+  height: 100%;
+  transition: height 3000ms ease-in-out;
 }
 
-.loading-section {
-  background: #fff;
-  height: 100vh;
-  width: 100%;
-  max-width: 25rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  overflow: hidden;
-  .loading {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border: 2px solid #ddd;
-    border-top: 2px solid $black-color;
-    margin-top: 1rem;
-    animation: loader 1.25s infinite linear;
-  }
-  @keyframes loader {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-}
-.pdf-loader {
-  background: $white-color;
-  height: 50vh;
-  border: solid $blue;
-  word-break: keep-all;
-  border-width: 0px 2px 2px 2px;
-  .loading {
-    border: 2px solid #ddd;
-    border-top: 2px solid $black-color;
-  }
-}
-.theme-dark {
-  .pdf-loader {
-    border: solid $white-color;
-  }
-}
-.footer {
-  .logo {
-    width: 21px;
-    margin-top: 40px;
-  }
-  .caardClub {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 1rem;
-    color: #222;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 26px;
-    img {
-      margin-left: 2px;
-    }
-  }
+.animationMOde {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
 }
