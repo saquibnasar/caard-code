@@ -7,7 +7,13 @@ import { pageNavigationPlugin } from "@react-pdf-viewer/page-navigation";
 import { ScrollMode } from "@react-pdf-viewer/core";
 import CloseBtn from "./CloseBtn";
 import { CSSTransition } from "react-transition-group";
-export default function Documents({ data, linkHandler }) {
+import TextLoader from "../TextLoader";
+import NeumorphicContainer from "../NeumorphicContainer";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
+
+export default function Documents({ data, linkHandler, isClosed, mode }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPage, setTotalPage] = useState(1);
   const [scrollLeft, setScrollLeft] = useState(1);
@@ -43,7 +49,7 @@ export default function Documents({ data, linkHandler }) {
 
   return (
     <>
-      <div className="mt-4 h-100 overflow-hidden">
+      <div className="mt-4 h-100 overflow-hidden slider">
         <CSSTransition
           in={true}
           appear={true}
@@ -51,50 +57,146 @@ export default function Documents({ data, linkHandler }) {
           classNames={"document_height_up"}
         >
           <div className="document slider border-none">
-            <div className="pdf">
-              <button
-                id="prev-page"
-                onClick={() => {
-                  goToPreviousPage(currentPage);
-                }}
-              >
-                ❮
-              </button>
-              <button
-                id="next-page"
-                onClick={() => {
-                  goToNextPage(currentPage, totalPage);
-                }}
-              >
-                ❯
-              </button>
+            {mode === "neuMorphism_light" || mode === "neuMorphism_dark" ? (
+              <>
+                <NeumorphicContainer
+                  containerclassName="p-2 round-25 d-flex"
+                  subcontainerclasses="border-none mt-0 p-2 round-25 w-100"
+                >
+                  <div className="pdf">
+                    <button
+                      className="prev-page"
+                      onClick={() => {
+                        goToPreviousPage(currentPage);
+                      }}
+                    >
+                      <NeumorphicContainer
+                        containerclassName="document_neumorphic_page_btn d-flex justify-content-center align-items-center"
+                        subcontainerclasses="p-2 d-flex justify-content-center align-items-center"
+                      >
+                        <FontAwesomeIcon icon={faChevronLeft} />
+                      </NeumorphicContainer>
+                    </button>
+                    <button
+                      className="next-page"
+                      onClick={() => {
+                        goToNextPage(currentPage, totalPage);
+                      }}
+                    >
+                      <NeumorphicContainer
+                        containerclassName="document_neumorphic_page_btn d-flex justify-content-center align-items-center"
+                        subcontainerclasses="p-2 d-flex justify-content-center align-items-center"
+                      >
+                        <FontAwesomeIcon icon={faChevronRight} />
+                      </NeumorphicContainer>
+                    </button>
 
-              <CurrentPageLabel>
-                {(RenderCurrentPageLabelProps) =>
-                  totalPageNumber(RenderCurrentPageLabelProps.numberOfPages)
-                }
-              </CurrentPageLabel>
+                    <CurrentPageLabel>
+                      {(RenderCurrentPageLabelProps) =>
+                        totalPageNumber(
+                          RenderCurrentPageLabelProps.numberOfPages
+                        )
+                      }
+                    </CurrentPageLabel>
 
-              <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.0.279/build/pdf.worker.min.js">
-                <div style={!pdfHolder ? { height: "300px" } : {}}>
-                  <Viewer
-                    fileUrl={data.URL}
-                    scrollMode={ScrollMode.Horizontal}
-                    enablePaging={true}
-                    horizontal={true}
-                    plugins={[pageNavigationPluginInstance]}
-                  />
+                    <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.0.279/build/pdf.worker.min.js">
+                      <div style={!pdfHolder ? { height: "300px" } : {}}>
+                        <Viewer
+                          fileUrl={data.URL}
+                          scrollMode={ScrollMode.Horizontal}
+                          enablePaging={true}
+                          horizontal={true}
+                          plugins={[pageNavigationPluginInstance]}
+                        />
+                      </div>
+                    </Worker>
+                  </div>
+                </NeumorphicContainer>
+                <div className="d-flex justify-content-center mt-2">
+                  <CloseBtn linkHandler={linkHandler} mode="neuMorphism" />
                 </div>
-              </Worker>
-            </div>
-            <a
-              href={data.URL}
-              download={data.URL}
-              className="swiper-content border-top-0"
-            >
-              Donwnload
-            </a>
-            <CloseBtn linkHandler={linkHandler} />
+              </>
+            ) : (
+              <>
+                <div className={isClosed ? "order-2" : ""}>
+                  <div className="pdf">
+                    <button
+                      className="prev-page documentPage_btn"
+                      onClick={() => {
+                        goToPreviousPage(currentPage);
+                      }}
+                    >
+                      <FontAwesomeIcon icon={faChevronLeft} />
+                    </button>
+                    <button
+                      className="next-page documentPage_btn"
+                      onClick={() => {
+                        goToNextPage(currentPage, totalPage);
+                      }}
+                    >
+                      <FontAwesomeIcon icon={faChevronRight} />
+                    </button>
+
+                    <CurrentPageLabel>
+                      {(RenderCurrentPageLabelProps) =>
+                        totalPageNumber(
+                          RenderCurrentPageLabelProps.numberOfPages
+                        )
+                      }
+                    </CurrentPageLabel>
+
+                    <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.0.279/build/pdf.worker.min.js">
+                      <div style={!pdfHolder ? { height: "300px" } : {}}>
+                        <Viewer
+                          fileUrl={data.URL}
+                          scrollMode={ScrollMode.Horizontal}
+                          enablePaging={true}
+                          horizontal={true}
+                          plugins={[pageNavigationPluginInstance]}
+                        />
+                      </div>
+                    </Worker>
+                  </div>
+                </div>
+                <div
+                  className={
+                    isClosed
+                      ? "swiper-content border-none round-0 order-1"
+                      : "swiper-content border-none round-0"
+                  }
+                >
+                  <p
+                    className={isClosed ? "slider_bottom-para" : ""}
+                    id="slider__para"
+                  >
+                    <TextLoader
+                      text={data.Title}
+                      id="slider__para"
+                      characterNumber="95"
+                      btnClass="slider__btn"
+                    />
+                  </p>
+                </div>
+                <div
+                  className={
+                    isClosed
+                      ? `download order-3 ${
+                          isClosed === "seven" ? "d-none" : ""
+                        }`
+                      : "download"
+                  }
+                >
+                  <a
+                    href={data.URL}
+                    download={data.URL}
+                    className="download_btn"
+                  >
+                    Donwnload
+                  </a>
+                </div>
+                {!isClosed ? <CloseBtn linkHandler={linkHandler} /> : ""}
+              </>
+            )}
           </div>
         </CSSTransition>
       </div>

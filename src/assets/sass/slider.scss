@@ -2,12 +2,12 @@
 @import "./custom.scss";
 
 .slider {
-  border-radius: 11px 11px 11px 11px;
+  border-radius: 11px;
   .swiper {
     border-radius: 11px 11px 0px 0px;
     border: 0.6px solid #9c9c9c;
     border-bottom: none;
-    background: $white-color;
+    // background: $white-color;
     * {
       outline: none;
     }
@@ -21,7 +21,7 @@
       display: flex !important;
       justify-content: center;
       img {
-        max-height: 360px;
+        // max-height: 360px;
         height: 100%;
         width: 100%;
       }
@@ -101,6 +101,7 @@
       font-size: 16px;
       line-height: 22px;
       color: $white-color;
+      text-align: start;
     }
   }
 }
@@ -112,6 +113,114 @@
     }
     .swiper-content {
       border: 0.6px solid $white-color;
+    }
+  }
+}
+.theme-blue,
+.theme-six {
+  .slider {
+    box-shadow: 6.43px 7.66px 10px rgb(167 0 250 / 10%);
+    .swiper {
+      border: 0.6px solid $white-color;
+      .slick-list {
+        border-radius: unset;
+      }
+    }
+    .swiper-content {
+      background: $white-color;
+      border: none;
+      padding: 11px 16px;
+      h4 {
+        color: $blue;
+        font-weight: 700;
+        font-size: 22px;
+        letter-spacing: 0.228px;
+      }
+      .slider_bottom-para {
+        font-weight: 700;
+        font-size: 18px;
+        letter-spacing: 0.228px;
+        color: rgba(0, 32, 76, 0.9);
+        .slider__btn {
+          font-weight: 700;
+          font-size: 18px;
+          letter-spacing: 0.228px;
+          color: rgba(0, 32, 76, 0.9);
+        }
+      }
+    }
+  }
+}
+.theme-six {
+  .slider {
+    .download {
+      background: $white-color;
+    }
+  }
+}
+.theme-seven {
+  .slider {
+    background: $white-color;
+    border: 1px solid #0e334c;
+    box-shadow: 2px 3px 0px 2px #0e334c;
+    border-radius: 4px;
+    .swiper {
+      .slick-list {
+        border-radius: unset;
+      }
+    }
+    .swiper-content {
+      background: $white-color;
+      border-radius: 4px;
+      h4,
+      pre,
+      .extra-btn {
+        font-family: "Quicksand";
+        font-weight: 700;
+        font-size: 18px;
+        letter-spacing: 0.228px;
+        color: rgba(0, 32, 76, 0.9);
+      }
+      .extra-btn {
+        color: #006bffe5;
+      }
+    }
+  }
+}
+
+.theme-neuMorphism_light,
+.theme-neuMorphism_dark {
+  .slider {
+    box-shadow: unset;
+    .swiper {
+      border: none;
+      border-radius: 25px;
+      .slick-list {
+        border-radius: 25px;
+      }
+      .slider_bottom-para {
+        font-weight: 700;
+        font-size: 18px;
+        letter-spacing: 0.228px;
+        color: rgba(0, 32, 76, 0.9);
+        .slider__btn {
+          font-weight: 700;
+          font-size: 18px;
+          letter-spacing: 0.228px;
+          color: rgba(0, 32, 76, 0.9);
+        }
+      }
+    }
+  }
+  .hero {
+    .slider {
+      .swiper {
+        .slick-list {
+          border-radius: 25px;
+          border-bottom-right-radius: 0px;
+          border-bottom-left-radius: 0px;
+        }
+      }
     }
   }
 }

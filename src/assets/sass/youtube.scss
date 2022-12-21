@@ -9,9 +9,6 @@
     border-radius: 8px;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
-    ::slotted(.ytp-show-cards-title) {
-      display: none !important;
-    }
   }
 
   .swiper-content {
@@ -19,6 +16,43 @@
     border: none !important;
     h4 {
       user-select: none;
+    }
+  }
+}
+
+.theme-seven {
+  .youtube {
+    .youtube_video {
+      border-radius: unset;
+      border: none;
+    }
+    .swiper-content {
+      p {
+        font-family: "Quicksand";
+        font-weight: 700;
+        font-size: 18px;
+        letter-spacing: 0.228px;
+        color: rgba(0, 32, 76, 0.9);
+      }
+    }
+  }
+}
+.theme-blue {
+  .youtube {
+    border-radius: 20px;
+    .youtube_video {
+      border-radius: unset;
+    }
+  }
+}
+.theme-neuMorphism_light,
+.theme-neuMorphism_dark {
+  .youtube {
+    border-radius: 20px;
+    .youtube_video {
+      border-radius: 25px;
+      height: 188px;
+      border: none;
     }
   }
 }

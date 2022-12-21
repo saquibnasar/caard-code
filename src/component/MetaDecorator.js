@@ -12,7 +12,7 @@ export default function MetaDecorator() {
         property="og:description"
         content="dummy text"
       />
-
+      <link rel="stylesheet" href="./Helvetica NeueLTW0693BlkExtObl.otf" />
       <meta property="og:site_name" content="Caard" />
       <meta property="og:image" itemprop="image" content="/favicon.svg" />
     </Helmet>

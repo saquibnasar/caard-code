@@ -1,21 +1,10 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown, faCropSimple } from "@fortawesome/free-solid-svg-icons";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import TextLoader from "../TextLoader";
 import { CSSTransition } from "react-transition-group";
-export default function CardLinks({ title, linkHandler }) {
-  // const cardLink = document.querySelectorAll(".card_link");
-
-  // if (cardLink) {
-  //   if (cardLink.length) {
-  //     console.log(cardLink[0]);
-  //     cardLink.map((value, id) => {
-  //       console.log(value.offsetHeight);
-  //       return value;
-  //     });
-  //   }
-  // }
-
+import NeumorphicContainer from "../NeumorphicContainer";
+export default function CardLinks({ title, linkHandler, mode }) {
   return (
     <>
       <CSSTransition
@@ -24,19 +13,51 @@ export default function CardLinks({ title, linkHandler }) {
         timeout={600}
         classNames={"card_link"}
       >
-        <div className="">
-          <button
-            className="card w-100 cursor_pointer card_link"
-            onClick={linkHandler}
-          >
-            <p>
-              <TextLoader text={title} id="youtube__para" wordNumber="16" />
-            </p>
-            <div className="svgIcon">
-              <FontAwesomeIcon icon={faChevronDown} />
-            </div>
-          </button>
-        </div>
+        {mode === "neuMorphism_light" || mode === "neuMorphism_dark" ? (
+          <div className="content_operator">
+            <button
+              className="w-100 cursor_pointer mt-4 border-none"
+              onClick={linkHandler}
+            >
+              <NeumorphicContainer
+                containerclassName="p-1px round-10 d-flex"
+                subcontainerclasses="card border-none mt-0 round-10 w-100"
+              >
+                <p>
+                  <TextLoader
+                    text={title}
+                    id="youtube__para"
+                    characterNumber="50"
+                  />
+                </p>
+                <NeumorphicContainer
+                  containerclassName="p-1px round-10 d-flex svgIcon"
+                  subcontainerclasses="content_operator-icon round-10"
+                >
+                  <FontAwesomeIcon icon={faChevronRight} />
+                </NeumorphicContainer>
+              </NeumorphicContainer>
+            </button>
+          </div>
+        ) : (
+          <div className="">
+            <button
+              className="card w-100 cursor_pointer card_link"
+              onClick={linkHandler}
+            >
+              <p>
+                <TextLoader
+                  text={title}
+                  id="youtube__para"
+                  characterNumber="50"
+                />
+              </p>
+              <div className="svgIcon">
+                <FontAwesomeIcon icon={faChevronRight} />
+              </div>
+            </button>
+          </div>
+        )}
       </CSSTransition>
     </>
   );

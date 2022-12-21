@@ -3,7 +3,8 @@ import TextLoader from "../TextLoader";
 import CloseBtn from "./CloseBtn";
 import ImgSlider from "./ImgSlider";
 import { CSSTransition } from "react-transition-group";
-export default function Slider({ data, linkHandler }) {
+import NeumorphicContainer from "../NeumorphicContainer";
+export default function Slider({ data, linkHandler, isClosed, mode }) {
   const [currentPage, setCurrentPage] = useState(0);
   const [title, setTitle] = useState(data[0].Title);
   const [subTitle, setSubTitle] = useState(data[0].SubTitle);
@@ -38,36 +39,81 @@ export default function Slider({ data, linkHandler }) {
 
   return (
     <>
-      <div className="mt-4 h-100 overflow-hidden">
+      <div
+        className={
+          !(isClosed === "seven")
+            ? "mt-4 h-100 overflow-hidden slider round-20"
+            : "mt-4 h-100 overflow-hidden slider"
+        }
+      >
         <CSSTransition
           in={true}
           appear={true}
           timeout={600}
           classNames={"slider_height_up"}
         >
-          <div className="slider slider__text__change">
-            <ImgSlider settings={settings} sliderImg={data} />
-            <div className="swiper-content round-0">
-              <h4 id="slider__title">
-                <TextLoader
-                  text={title}
-                  id="slider__title"
-                  wordNumber="15"
-                  btnClass="slider__btn"
-                />
-              </h4>
-            </div>
-            <div className="swiper-content">
-              <p id="slider__para">
-                <TextLoader
-                  text={subTitle}
-                  id="slider__para"
-                  wordNumber="15"
-                  btnClass="slider__btn"
-                />
-              </p>
-            </div>
-            <CloseBtn linkHandler={linkHandler} />
+          <div className="slider__text__change d-flex flex-direction-column">
+            {mode === "neuMorphism_light" || mode === "neuMorphism_dark" ? (
+              <>
+                <NeumorphicContainer
+                  containerclassName="p-2 round-25 d-flex"
+                  subcontainerclasses="border-none mt-0 p-2 round-25 w-100"
+                >
+                  <ImgSlider settings={settings} sliderImg={data} />
+                </NeumorphicContainer>
+                <div className="d-flex justify-content-center mt-2">
+                  <CloseBtn linkHandler={linkHandler} mode="neuMorphism" />
+                </div>
+              </>
+            ) : (
+              <>
+                <div className={isClosed ? "order-2" : ""}>
+                  <ImgSlider
+                    settings={settings}
+                    sliderImg={data}
+                    className="round-0"
+                  />
+                </div>
+                <div
+                  className={
+                    isClosed
+                      ? "swiper-content round-0 order-1"
+                      : "swiper-content round-0"
+                  }
+                >
+                  <h4 id="slider__title">
+                    <TextLoader
+                      text={title}
+                      id="slider__title"
+                      characterNumber="50"
+                      btnClass="slider__btn"
+                    />
+                  </h4>
+                </div>
+                {subTitle.trim() ? (
+                  <div
+                    className={
+                      isClosed ? "swiper-content order-3" : "swiper-content"
+                    }
+                  >
+                    <pre
+                      className={isClosed ? "slider_bottom-para" : ""}
+                      id="slider__para"
+                    >
+                      <TextLoader
+                        text={subTitle}
+                        id="slider__para"
+                        characterNumber="104"
+                        btnClass="slider__btn"
+                      />
+                    </pre>
+                  </div>
+                ) : (
+                  ""
+                )}
+                {!isClosed ? <CloseBtn linkHandler={linkHandler} /> : ""}
+              </>
+            )}
           </div>
         </CSSTransition>
       </div>

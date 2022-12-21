@@ -1,7 +1,7 @@
 .document {
   overflow: hidden;
   .pdf {
-    border: 0.6px solid #9c9c9c !important;
+    border: 0.6px solid #9c9c9c;
     border-radius: 11px;
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
@@ -31,6 +31,7 @@
       display: none;
     }
     .rpv-core__inner-page {
+      background: transparent;
       width: 360px !important;
       // width: 336px !important;
       @media (max-width: 399px) {
@@ -109,6 +110,12 @@
         width: 335px !important;
       }
     }
+    .rpv-core__text-layer {
+      display: none;
+    }
+    .rpv-core__annotation-layer {
+      display: none;
+    }
 
     position: relative;
     transition: 1000ms ease;
@@ -124,12 +131,13 @@
     .react-pdf__message {
       display: none;
     }
-    #prev-page,
-    #next-page {
-      // display: none;
-      cursor: pointer;
+    .prev-page,
+    .next-page {
       position: absolute;
       top: 50%;
+      z-index: 2;
+    }
+    .documentPage_btn {
       width: auto;
       padding: 16px;
       background-color: $secondary-color;
@@ -139,22 +147,23 @@
       border-radius: 0 3px 3px 0;
       user-select: none;
       border: none;
+      cursor: pointer;
       z-index: 2;
       color: #fff;
     }
 
     /* Position the "next button" to the right */
-    #next-page {
+    .next-page {
       right: 0;
       border-radius: 3px 0 0 3px;
     }
 
     /* On hover, add a black background color with a little bit see-through */
-    #prev-page:hover,
-    #next-page:hover {
+    .documentPage_btn:hover {
       background-color: #393b3f;
       color: $white-color;
     }
+
     .react-pdf__Document {
       width: 100%;
       height: 100%;
@@ -185,11 +194,260 @@
       width: 300px;
     }
   }
+  .download_btn {
+    color: $white-color;
+  }
+  .pdf:has(.rpv-core__doc-loading) {
+    .prev-page,
+    .next-page {
+      display: none;
+    }
+  }
+}
+
+.theme-dark {
+  .document {
+    .pdf {
+      border: 0.6px solid #9c9c9c;
+      border-bottom: none;
+    }
+    .swiper-content {
+      border-left: 0.6px solid #9c9c9c !important;
+      border-right: 0.6px solid #9c9c9c !important;
+    }
+    .download {
+      border: 0.6px solid #9c9c9c;
+      border-top: none;
+    }
+  }
 }
 .theme-white {
   .document {
     .pdf {
-      border: 0.6px solid #fff;
+      border: none;
+    }
+  }
+}
+.theme-blue {
+  .document {
+    background: $white-color;
+    box-shadow: 3.21px 3.83px 10px rgb(167 0 250 / 10%);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 18px;
+    .pdf {
+      border: none;
+      border-radius: unset;
+      .rpv-core__inner-pages {
+        border-radius: unset;
+      }
+    }
+  }
+}
+.theme-neuMorphism_light,
+.theme-neuMorphism_dark {
+  .document {
+    .pdf {
+      border: none;
+      .rpv-core__inner-pages {
+        border-radius: 25px;
+      }
+      .rpv-core__doc-loading {
+        border-radius: 25px;
+      }
+    }
+  }
+}
+.theme-six,
+.theme-neuMorphism_light,
+.theme-neuMorphism_dark,
+.theme-seven {
+  .pdf {
+    .rpv-core__inner-page {
+      background: transparent;
+      width: 390px !important;
+      // width: 336px !important;
+      @media (max-width: 429px) {
+        width: 389px !important;
+      }
+      @media (max-width: 428px) {
+        width: 388px !important;
+      }
+      @media (max-width: 427px) {
+        width: 387px !important;
+      }
+      @media (max-width: 426px) {
+        width: 386px !important;
+      }
+      @media (max-width: 425px) {
+        width: 385px !important;
+      }
+      @media (max-width: 424px) {
+        width: 384px !important;
+      }
+      @media (max-width: 423px) {
+        width: 383px !important;
+      }
+      @media (max-width: 422px) {
+        width: 382px !important;
+      }
+      @media (max-width: 421px) {
+        width: 381px !important;
+      }
+      @media (max-width: 420px) {
+        width: 380px !important;
+      }
+      @media (max-width: 419px) {
+        width: 379px !important;
+      }
+      @media (max-width: 418px) {
+        width: 378px !important;
+      }
+      @media (max-width: 417px) {
+        width: 377px !important;
+      }
+      @media (max-width: 416px) {
+        width: 376px !important;
+      }
+      @media (max-width: 415px) {
+        width: 375px !important;
+      }
+      @media (max-width: 414px) {
+        width: 374px !important;
+      }
+      @media (max-width: 413px) {
+        width: 373px !important;
+      }
+      @media (max-width: 412px) {
+        width: 372px !important;
+      }
+      @media (max-width: 411px) {
+        width: 371px !important;
+      }
+      @media (max-width: 410px) {
+        width: 370px !important;
+      }
+      @media (max-width: 409px) {
+        width: 369px !important;
+      }
+      @media (max-width: 408px) {
+        width: 368px !important;
+      }
+      @media (max-width: 407px) {
+        width: 367px !important;
+      }
+      @media (max-width: 406px) {
+        width: 366px !important;
+      }
+      @media (max-width: 404px) {
+        width: 365px !important;
+      }
+      @media (max-width: 403px) {
+        width: 364px !important;
+      }
+      @media (max-width: 402px) {
+        width: 363px !important;
+      }
+      @media (max-width: 401px) {
+        width: 362px !important;
+      }
+      @media (max-width: 400px) {
+        width: 361px !important;
+      }
+      @media (max-width: 399px) {
+        width: 360px !important;
+      }
+      @media (max-width: 398px) {
+        width: 359px !important;
+      }
+      @media (max-width: 397px) {
+        width: 358px !important;
+      }
+      @media (max-width: 396px) {
+        width: 357px !important;
+      }
+      @media (max-width: 395px) {
+        width: 356px !important;
+      }
+      @media (max-width: 394px) {
+        width: 355px !important;
+      }
+      @media (max-width: 392px) {
+        width: 354px !important;
+      }
+      @media (max-width: 391px) {
+        width: 353px !important;
+      }
+      @media (max-width: 390px) {
+        width: 352px !important;
+      }
+      @media (max-width: 389px) {
+        width: 351px !important;
+      }
+      @media (max-width: 388px) {
+        width: 350px !important;
+      }
+      @media (max-width: 387px) {
+        width: 349px !important;
+      }
+      @media (max-width: 386px) {
+        width: 348px !important;
+      }
+      @media (max-width: 385px) {
+        width: 347px !important;
+      }
+      @media (max-width: 384px) {
+        width: 346px !important;
+      }
+      @media (max-width: 383px) {
+        width: 344px !important;
+      }
+      @media (max-width: 382px) {
+        width: 343px !important;
+      }
+      @media (max-width: 381px) {
+        width: 342px !important;
+      }
+      @media (max-width: 380px) {
+        width: 341px !important;
+      }
+      @media (max-width: 379px) {
+        width: 340px !important;
+      }
+      @media (max-width: 378px) {
+        width: 339px !important;
+      }
+      @media (max-width: 377px) {
+        width: 338px !important;
+      }
+      @media (max-width: 376px) {
+        width: 337px !important;
+      }
+      @media (max-width: 375px) {
+        width: 336px !important;
+      }
+    }
+  }
+}
+.theme-seven {
+  .document {
+    display: flex;
+    flex-direction: column;
+    .swiper-content {
+      p {
+        font-family: "Quicksand";
+        font-weight: 700;
+        font-size: 18px;
+        letter-spacing: 0.228px;
+        color: rgba(0, 32, 76, 0.9);
+      }
+    }
+    .pdf {
+      border-radius: 0px;
+      .rpv-core__inner-pages {
+        border-radius: 0px;
+      }
     }
   }
 }

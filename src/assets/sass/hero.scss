@@ -38,5 +38,76 @@
     margin-top: 14px;
     padding: 10px;
     word-break: keep-all;
+    overflow: hidden;
+  }
+}
+.theme-blue {
+  .hero {
+    .hero-detail {
+      background: $white-color;
+      box-shadow: 3.21px 3.83px 10px rgb(167 0 250 / 10%);
+      border-radius: 20px;
+    }
+    h1 {
+      span {
+        color: #a700fa;
+      }
+    }
+  }
+}
+.theme-six {
+  .hero {
+    .hero-detail {
+      background: $white-color;
+      box-shadow: 3.21px 3.83px 10px rgb(167 0 250 / 10%);
+      border-radius: 20px;
+      pre {
+        color: #00204c;
+      }
+    }
+  }
+}
+.theme-seven {
+  .hero {
+    .hero-detail {
+      background: #ffffff;
+      border: 1px solid #0e334c;
+      box-shadow: 2px 3px 0px 2px #0e334c;
+      border-radius: 4px;
+      pre {
+        font-family: "Quicksand";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 127.9%;
+        color: $black-color;
+      }
+    }
+  }
+}
+
+.theme-neuMorphism_light,
+.theme-neuMorphism_dark {
+  .hero {
+    .hero-detail {
+      margin-top: 0px;
+      background: transparent;
+      pre {
+        font-family: "Open Sans";
+        font-weight: 400;
+        font-size: 14px;
+        color: #47556d;
+      }
+    }
+  }
+}
+.theme-neuMorphism_dark {
+  .hero {
+    .hero-detail {
+      border: none;
+      pre {
+        color: $white-color;
+      }
+    }
   }
 }

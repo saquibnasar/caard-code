@@ -1,0 +1,269 @@
+@import "./custom.scss";
+@import "./font.scss";
+.extra-btn {
+  font-family: $fontCairo;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: $white-color;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.theme-blue {
+  .extra-btn {
+    color: $blue;
+  }
+}
+.close_btn {
+  height: 50px;
+  width: 50px;
+  margin-top: 1rem;
+  border-radius: 50%;
+  font-size: 1.25rem;
+  color: #303030;
+  border: none;
+  background: $white-color;
+  cursor: pointer;
+}
+.neumorphic-btn {
+  width: 55px;
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  button {
+    color: $white-color;
+    border: none;
+    background: transparent;
+    font-size: 25px;
+  }
+}
+.document_neumorphic_page_btn {
+  cursor: pointer;
+  z-index: 2;
+  width: 35px;
+  height: 55px;
+  .neumorphic_layer2 {
+    width: 35px;
+    height: 55px;
+    font-size: 1.5rem;
+    color: #60656b;
+  }
+}
+
+.theme-neuMorphism_light {
+  .document_neumorphic_page_btn {
+    .neumorphic_layer2 {
+      color: $white-color;
+    }
+  }
+}
+
+.theme-neuMorphism_dark {
+  .neumorphic-btn {
+    button {
+      color: #60656b;
+    }
+  }
+}
+
+.theme-white {
+  .close_btn {
+    color: $white-color;
+    background: #303030;
+  }
+}
+.youtube__btn {
+  font-size: 20px;
+}
+.hero__btn {
+  font-weight: 400;
+  font-size: 14px;
+}
+.theme-blue {
+  .hero__btn {
+    font-weight: 600;
+    font-size: 15px;
+    font-family: "Open Sans";
+  }
+}
+.slider__btn {
+  font-weight: 600;
+  font-size: 16px;
+}
+.theme-blue {
+  .slider__btn {
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: 0.228px;
+  }
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.d-flex {
+  display: flex !important;
+}
+.d-none {
+  display: none !important;
+}
+.d-block {
+  display: block !important;
+}
+.justify-content-center {
+  justify-content: center !important;
+}
+.justify-content-end {
+  justify-content: end !important;
+}
+.flex-direction-column {
+  flex-direction: column !important;
+}
+.align-items-center {
+  align-items: center !important;
+}
+.order-1 {
+  order: 1 !important;
+}
+.order-2 {
+  order: 2 !important;
+}
+.order-3 {
+  order: 3 !important;
+}
+.order-4 {
+  order: 4 !important;
+}
+.w-0 {
+  width: 0px;
+}
+.h-0 {
+  height: 0px;
+}
+.h-100 {
+  height: 100%;
+}
+.w-51px {
+  width: 51px;
+}
+.h-51px {
+  height: 51px;
+}
+.cursor_pointer {
+  cursor: pointer;
+}
+.round-0 {
+  border-radius: 0px !important;
+}
+.round-10 {
+  border-radius: 10px !important;
+}
+.round-20 {
+  border-radius: 20px !important;
+}
+.round-25 {
+  border-radius: 25px !important;
+}
+.rounded-circle {
+  border-radius: 50%;
+}
+.border-top-0 {
+  border-top: 0px !important;
+}
+.border-none {
+  border: none !important;
+}
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+.text-center {
+  text-align: center;
+}
+.mt-5 {
+  margin-top: 3rem !important;
+}
+.mt-2rem {
+  margin-top: 2rem;
+}
+.mt-4 {
+  margin-top: 1.5rem !important;
+}
+.mt-3 {
+  margin-top: 1rem !important;
+}
+.mt-2 {
+  margin-top: 0.5rem !important;
+}
+.mt-0 {
+  margin-top: 0rem !important;
+}
+.p-2 {
+  padding: 8px !important;
+}
+.p-1 {
+  padding: 4px !important;
+}
+.p-1px {
+  padding: 1px !important;
+}
+
+.p-2px {
+  padding: 2px !important;
+}
+
+// box shadow
+.box-shadow-none {
+  box-shadow: none !important;
+}
+
+// gaps
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.w-100 {
+  width: 100% !important;
+}
+
+.documents .document {
+  position: relative;
+}
+
+.banner-shadow {
+  box-shadow: 2px 3px 0px 2px $blue;
+}
+.round-bottom-0 {
+  border-bottom-right-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+}
+
+.bg-neumorphic_whiteGray {
+  background: $neumorphic-whiteGray !important;
+}
+.bg-neumorphic_lightwhiteGray {
+  background: $neumorphic-lightwhiteGray !important;
+}
+.bg-white {
+  background: $white-color;
+}
+.p-relative {
+  position: relative;
+}
+.animationMOde {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+.content_operator-icon {
+  padding: 16px 19px;
+}

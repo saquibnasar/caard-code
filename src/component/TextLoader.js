@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 
-export default function TextLoader({ text, wordNumber, btnClass }) {
+export default function TextLoader({ text, characterNumber, btnClass }) {
   let bioText = text.trim().split(" ");
   let primaryText = [];
   let subText = [];
 
   bioText.map((value) => {
-    if (primaryText.length > wordNumber) {
+    if (primaryText.join(" ").split("").length > characterNumber) {
       subText.push(value.trim());
     } else {
       primaryText.push(value.trim());
@@ -15,6 +15,7 @@ export default function TextLoader({ text, wordNumber, btnClass }) {
     return value;
   });
   const [changeText, setChangeText] = useState(primaryText.join(" "));
+
   useEffect(() => {
     setChangeText(primaryText.join(" "));
   }, [text]);
