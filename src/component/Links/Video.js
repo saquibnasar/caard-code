@@ -24,11 +24,11 @@ export default function Video({ data, linkHandler, isClosed, mode }) {
         <div className="">
           <div className="mt-4 h-100 overflow-hidden slider">
             <div className="youtube">
-              {mode === "neuMorphism_light" || mode === "neuMorphism_dark" ? (
+              {mode === "riorpad" || mode === "buwayne" ? (
                 <>
                   <NeumorphicContainer
-                    containerclassName="p-2 round-25 d-flex"
-                    subcontainerclasses="border-none mt-0 p-2 round-25 w-100 d-flex justify-content-center"
+                    containerclassName="round-25 d-flex"
+                    subcontainerclasses="border-none mt-0 p-1 round-25 w-100 d-flex justify-content-center"
                   >
                     <iframe
                       className="youtube_video"
@@ -43,17 +43,23 @@ export default function Video({ data, linkHandler, isClosed, mode }) {
                 </>
               ) : (
                 <>
-                  {isClosed ? (
-                    <div className="swiper-content border-none round-0">
-                      <p className="slider_bottom-para" id="slider__para">
-                        <TextLoader
-                          text={data.Title}
-                          id="slider__para"
-                          characterNumber="95"
-                          btnClass="slider__btn"
-                        />
-                      </p>
-                    </div>
+                  {data.Title.trim() ? (
+                    <>
+                      {isClosed ? (
+                        <div className="swiper-content border-none round-0">
+                          <p className="slider_bottom-para" id="slider__para">
+                            <TextLoader
+                              text={data.Title}
+                              id="slider__para"
+                              characterNumber="95"
+                              btnClass="slider__btn"
+                            />
+                          </p>
+                        </div>
+                      ) : (
+                        ""
+                      )}
+                    </>
                   ) : (
                     ""
                   )}

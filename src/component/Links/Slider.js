@@ -41,7 +41,7 @@ export default function Slider({ data, linkHandler, isClosed, mode }) {
     <>
       <div
         className={
-          !(isClosed === "seven")
+          !(isClosed === "etyne")
             ? "mt-4 h-100 overflow-hidden slider round-20"
             : "mt-4 h-100 overflow-hidden slider"
         }
@@ -53,10 +53,10 @@ export default function Slider({ data, linkHandler, isClosed, mode }) {
           classNames={"slider_height_up"}
         >
           <div className="slider__text__change d-flex flex-direction-column">
-            {mode === "neuMorphism_light" || mode === "neuMorphism_dark" ? (
+            {mode === "riorpad" || mode === "buwayne" ? (
               <>
                 <NeumorphicContainer
-                  containerclassName="p-2 round-25 d-flex"
+                  containerclassName="round-25 d-flex"
                   subcontainerclasses="border-none mt-0 p-2 round-25 w-100"
                 >
                   <ImgSlider settings={settings} sliderImg={data} />
@@ -74,22 +74,26 @@ export default function Slider({ data, linkHandler, isClosed, mode }) {
                     className="round-0"
                   />
                 </div>
-                <div
-                  className={
-                    isClosed
-                      ? "swiper-content round-0 order-1"
-                      : "swiper-content round-0"
-                  }
-                >
-                  <h4 id="slider__title">
-                    <TextLoader
-                      text={title}
-                      id="slider__title"
-                      characterNumber="50"
-                      btnClass="slider__btn"
-                    />
-                  </h4>
-                </div>
+                {title.trim() ? (
+                  <div
+                    className={
+                      isClosed
+                        ? "swiper-content round-0 order-1"
+                        : "swiper-content round-0"
+                    }
+                  >
+                    <h4 id="slider__title">
+                      <TextLoader
+                        text={title}
+                        id="slider__title"
+                        characterNumber="50"
+                        btnClass="slider__btn"
+                      />
+                    </h4>
+                  </div>
+                ) : (
+                  ""
+                )}
                 {subTitle.trim() ? (
                   <div
                     className={

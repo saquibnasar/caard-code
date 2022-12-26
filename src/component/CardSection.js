@@ -41,7 +41,7 @@ export default function CardSection({ modeData, mode, heroData }) {
           ) : (
             ""
           )}
-          {mode === "blue" || mode === "six" || mode === "seven" ? (
+          {mode === "phiverse" || mode === "dahwoo" || mode === "etyne" ? (
             <>
               {JSON.parse(modeData.Slider.Links).length ? (
                 <>
@@ -80,7 +80,7 @@ export default function CardSection({ modeData, mode, heroData }) {
             </>
           )}
 
-          {mode === "blue" || mode === "six" || mode === "seven" ? (
+          {mode === "phiverse" || mode === "dahwoo" || mode === "etyne" ? (
             <>
               {modeData.Document.URL && modeData.Document.isActive ? (
                 <>
@@ -118,7 +118,7 @@ export default function CardSection({ modeData, mode, heroData }) {
             </>
           )}
 
-          {mode === "blue" || mode === "six" || mode === "seven" ? (
+          {mode === "phiverse" || mode === "dahwoo" || mode === "etyne" ? (
             <>
               {modeData.FeaturedVideo && modeData.FeaturedVideo.isActive ? (
                 <>

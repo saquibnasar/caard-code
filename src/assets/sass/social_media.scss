@@ -1,0 +1,13 @@
+.social_media {
+  --bs-gutter-x: 0.5rem;
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: calc(var(--bs-gutter-x) * -0.5);
+  margin-right: calc(var(--bs-gutter-x) * -0.5);
+  margin-top: calc(var(--bs-gutter-y) * -1);
+  .theme_dahwoo-card {
+    flex: 0 0 auto;
+    width: 12.5%;
+  }
+}

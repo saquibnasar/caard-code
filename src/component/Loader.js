@@ -19,10 +19,28 @@ export default function Loader({ mode, className }) {
           </CSSTransition>
         </section>
       ) : (
-        <section className="loading-section d-flex" id="loader">
-          <img width="40" height="60" alt="loading" src={logo} />
-          <div className="loading"></div>
-        </section>
+        <>
+          {mode === "document" ? (
+            <section
+              className="loading-section d-flex"
+              id="loader"
+              style={{
+                position: "absolute",
+                left: "0px",
+                top: "50%",
+                zIndex: 1,
+                height: "unset",
+              }}
+            >
+              <div className="loading"></div>
+            </section>
+          ) : (
+            <section className="loading-section d-flex" id="loader">
+              <img width="40" height="60" alt="loading" src={logo} />
+              <div className="loading"></div>
+            </section>
+          )}
+        </>
       )}
     </>
   );

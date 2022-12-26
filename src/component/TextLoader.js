@@ -18,6 +18,20 @@ export default function TextLoader({ text, characterNumber, btnClass }) {
 
   useEffect(() => {
     setChangeText(primaryText.join(" "));
+
+    const slider__paraBtn = document.querySelector("#slider__para .extra-btn");
+    const slider__titleBtn = document.querySelector(
+      "#slider__title .extra-btn"
+    );
+
+    if (slider__paraBtn) {
+      slider__paraBtn.classList.remove("d-none");
+      slider__paraBtn.classList.add("d-flex");
+    }
+    if (slider__titleBtn) {
+      slider__titleBtn.classList.remove("d-none");
+      slider__titleBtn.classList.add("d-flex");
+    }
   }, [text]);
 
   const showHeroDetail = (event) => {

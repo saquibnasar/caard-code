@@ -10,7 +10,7 @@ export default function Card({ StandardLinks, CustomLinks, mode, heroData }) {
       <div className="cardItem">
         <div
           className={
-            mode === "six" || mode === "seven"
+            mode === "dahwoo" || mode === "etyne"
               ? "social_media d-flex justify-content-center align-items-center mt-4 gap-2"
               : ""
           }
@@ -42,10 +42,7 @@ export default function Card({ StandardLinks, CustomLinks, mode, heroData }) {
                   link = `mailto:${value.URL}`;
                 }
 
-                if (
-                  mode === "neuMorphism_light" ||
-                  mode === "neuMorphism_dark"
-                ) {
+                if (mode === "riorpad" || mode === "buwayne") {
                   return (
                     <a
                       key={id}
@@ -76,12 +73,12 @@ export default function Card({ StandardLinks, CustomLinks, mode, heroData }) {
                     </a>
                   );
                 }
-                if (mode === "six" || mode === "seven") {
+                if (mode === "dahwoo" || mode === "etyne") {
                   return (
                     <a
                       key={id}
                       href={link}
-                      className={mode === "six" ? "theme_six-card" : ""}
+                      className={mode === "dahwoo" ? "theme_dahwoo-card" : ""}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -138,7 +135,7 @@ export default function Card({ StandardLinks, CustomLinks, mode, heroData }) {
               if (!value.isActive) {
                 return "";
               }
-              if (mode === "neuMorphism_light" || mode === "neuMorphism_dark") {
+              if (mode === "riorpad" || mode === "buwayne") {
                 return (
                   <a
                     key={id}
@@ -173,18 +170,18 @@ export default function Card({ StandardLinks, CustomLinks, mode, heroData }) {
                   </a>
                 );
               }
-              if (mode === "six") {
+              if (mode === "dahwoo" && !(value.IconUrl === null)) {
                 return (
                   <div className="mt-4">
                     <a
                       key={id}
                       href={value.URL}
-                      className="customCard_six"
+                      className="customCard_dahwoo"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <img className="img-fluid" src={"/image.png"} alt="" />
-                      <div className="customCard_six-bottom">
+                      <img className="img-fluid" src={value.IconUrl} alt="" />
+                      <div className="customCard_dahwoo-bottom">
                         <p>{value.Title ? value.Title : value.Name}</p>
                         <FontAwesomeIcon icon={faLink} />
                       </div>
@@ -197,7 +194,7 @@ export default function Card({ StandardLinks, CustomLinks, mode, heroData }) {
                   key={id}
                   href={value.URL}
                   className={
-                    mode === "seven" && value.IconUrl === null
+                    mode === "etyne" && value.IconUrl === null
                       ? "customLinkCard card"
                       : "card"
                   }

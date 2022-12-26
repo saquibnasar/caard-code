@@ -11,7 +11,7 @@
   border: none;
   cursor: pointer;
 }
-.theme-blue {
+.theme-phiverse {
   .extra-btn {
     color: $blue;
   }
@@ -54,7 +54,7 @@
   }
 }
 
-.theme-neuMorphism_light {
+.theme-riorpad {
   .document_neumorphic_page_btn {
     .neumorphic_layer2 {
       color: $white-color;
@@ -62,7 +62,7 @@
   }
 }
 
-.theme-neuMorphism_dark {
+.theme-buwayne {
   .neumorphic-btn {
     button {
       color: #60656b;
@@ -70,7 +70,7 @@
   }
 }
 
-.theme-white {
+.theme-shencho {
   .close_btn {
     color: $white-color;
     background: #303030;
@@ -83,7 +83,7 @@
   font-weight: 400;
   font-size: 14px;
 }
-.theme-blue {
+.theme-phiverse {
   .hero__btn {
     font-weight: 600;
     font-size: 15px;
@@ -94,7 +94,7 @@
   font-weight: 600;
   font-size: 16px;
 }
-.theme-blue {
+.theme-phiverse {
   .slider__btn {
     font-weight: 700;
     font-size: 22px;
@@ -104,6 +104,9 @@
 
 .overflow-hidden {
   overflow: hidden;
+}
+.text-center {
+  text-align: center;
 }
 
 .d-flex {

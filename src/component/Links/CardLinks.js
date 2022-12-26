@@ -13,7 +13,7 @@ export default function CardLinks({ title, linkHandler, mode }) {
         timeout={600}
         classNames={"card_link"}
       >
-        {mode === "neuMorphism_light" || mode === "neuMorphism_dark" ? (
+        {mode === "riorpad" || mode === "buwayne" ? (
           <div className="content_operator">
             <button
               className="w-100 cursor_pointer mt-4 border-none"

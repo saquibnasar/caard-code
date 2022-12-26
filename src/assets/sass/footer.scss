@@ -56,14 +56,14 @@
   //   }
   // }
 }
-.theme-dark {
+.theme-consmy {
   .footer {
     .caardClub {
       color: $white-color;
     }
   }
 }
-.theme-blue {
+.theme-phiverse {
   .footer {
     margin-top: 28px;
     .caardClub {
@@ -83,6 +83,31 @@
         font-weight: 700;
         font-size: 18px;
       }
+    }
+  }
+}
+.theme-etyne {
+  .footer {
+    margin-top: 80px;
+    margin-bottom: 24px;
+    .caardClub {
+      width: 190px;
+      margin: auto;
+      background: $white-color;
+      box-shadow: 6.43px 7.66px 10px rgb(167 0 250 / 10%);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      padding: 7px 14px;
+      height: 100%;
+    }
+    P {
+      font-family: "Cairo Play";
+      font-weight: 500;
+      font-size: 15px;
+      line-height: 30px;
+      letter-spacing: 0.73px;
+      color: #141414;
     }
   }
 }

@@ -72,7 +72,7 @@ export default function Home() {
   let hero;
   let spanText;
   let headingText;
-  let testThme = "seven";
+  let testThme = "etyne";
 
   if (!(data === undefined)) {
     hero = JSON.parse(data.CoverImageLocation);
@@ -87,7 +87,7 @@ export default function Home() {
       headingText = primaryText.join(" ");
     }
   }
-  //
+
   return (
     <>
       <div className={`main-container theme-${testThme}`}>
@@ -102,8 +102,7 @@ export default function Home() {
               timeout={1000}
               classNames="fade"
             >
-              {testThme === "neuMorphism_light" ||
-              testThme === "neuMorphism_dark" ? (
+              {testThme === "riorpad" || testThme === "buwayne" ? (
                 <NeumorphicContainer
                   containerclassName="neumorphic-container p-2"
                   subcontainerclasses="sub-container round-25 p-2"
@@ -244,10 +243,13 @@ export default function Home() {
                           {data.Location}
                           {data.Country ? `, ${data.Country}` : ""}
                         </h3>
+
                         {data.Bio.trim() ? (
                           <div
                             className={
-                              testThme === "seven" ? "d-none" : "hero-detail"
+                              testThme === "etyne" || testThme === "dahwoo"
+                                ? "d-none"
+                                : "hero-detail"
                             }
                           >
                             <pre id="hero__para">
@@ -266,7 +268,7 @@ export default function Home() {
                     </div>
                   </section>
                   <MetaDecorator />
-                  {testThme === "seven" ? (
+                  {testThme === "etyne" || testThme === "dahwoo" ? (
                     <CardSection
                       modeData={modeData}
                       mode={testThme}
@@ -276,7 +278,7 @@ export default function Home() {
                     <CardSection modeData={modeData} mode={testThme} />
                   )}
 
-                  <Footer theme={theme} mode={testThme} />
+                  <Footer theme={theme} mode={testThme} userName={data.Name} />
                 </div>
               )}
             </CSSTransition>
