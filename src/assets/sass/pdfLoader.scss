@@ -14,3 +14,33 @@
     border: solid $white-color;
   }
 }
+.rpv-core__doc-loading {
+  height: 300px;
+  position: absolute;
+  z-index: 4;
+  background: #fff;
+  width: 100%;
+  max-width: 25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+  .rpv-core__spinner {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+    border-top: 2px solid $black-color;
+    margin: 1rem auto;
+    animation: loader 1.25s infinite linear;
+  }
+  @keyframes loader {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}

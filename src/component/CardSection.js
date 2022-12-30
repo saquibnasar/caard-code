@@ -41,24 +41,14 @@ export default function CardSection({ modeData, mode, heroData }) {
           ) : (
             ""
           )}
-          {mode === "phiverse" || mode === "dahwoo" || mode === "etyne" ? (
+          {JSON.parse(modeData.Slider.Links)[0].Title.trim() &&
+          (mode === "buwayne" ||
+            mode === "shencho" ||
+            mode === "consmy" ||
+            mode === "riorpad") ? (
             <>
-              {JSON.parse(modeData.Slider.Links).length ? (
-                <>
-                  <Slider
-                    data={JSON.parse(modeData.Slider.Links)}
-                    linkHandler={linkHandler.bind(this, "slider")}
-                    isClosed={mode}
-                    mode={mode}
-                  />
-                </>
-              ) : (
-                ""
-              )}
-            </>
-          ) : (
-            <>
-              {JSON.parse(modeData.Slider.Links).length ? (
+              {JSON.parse(modeData.Slider.Links).length &&
+              JSON.parse(modeData.Slider.isActive) ? (
                 <>
                   {sliderIsTrue ? (
                     <CardLinks
@@ -78,23 +68,29 @@ export default function CardSection({ modeData, mode, heroData }) {
                 ""
               )}
             </>
-          )}
-
-          {mode === "phiverse" || mode === "dahwoo" || mode === "etyne" ? (
+          ) : (
             <>
-              {modeData.Document.URL && modeData.Document.isActive ? (
+              {JSON.parse(modeData.Slider.Links).length &&
+              JSON.parse(modeData.Slider.isActive) ? (
                 <>
-                  <Documents
-                    data={modeData.Document}
-                    linkHandler={linkHandler.bind(this, "document")}
+                  <Slider
+                    data={JSON.parse(modeData.Slider.Links)}
+                    linkHandler={linkHandler.bind(this, "slider")}
                     isClosed={mode}
+                    mode={mode}
                   />
                 </>
               ) : (
                 ""
               )}
             </>
-          ) : (
+          )}
+
+          {modeData.Document.Title.trim() &&
+          (mode === "buwayne" ||
+            mode === "shencho" ||
+            mode === "consmy" ||
+            mode === "riorpad") ? (
             <>
               {modeData.Document.URL && modeData.Document.isActive ? (
                 <>
@@ -111,6 +107,21 @@ export default function CardSection({ modeData, mode, heroData }) {
                       mode={mode}
                     />
                   )}
+                </>
+              ) : (
+                ""
+              )}
+            </>
+          ) : (
+            <>
+              {modeData.Document.URL && modeData.Document.isActive ? (
+                <>
+                  <Documents
+                    data={modeData.Document}
+                    linkHandler={linkHandler.bind(this, "document")}
+                    isClosed={mode}
+                    mode={mode}
+                  />
                 </>
               ) : (
                 ""

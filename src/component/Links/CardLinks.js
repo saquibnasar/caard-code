@@ -20,7 +20,7 @@ export default function CardLinks({ title, linkHandler, mode }) {
               onClick={linkHandler}
             >
               <NeumorphicContainer
-                containerclassName="p-1px round-10 d-flex"
+                containerclassName="round-10 d-flex"
                 subcontainerclasses="card border-none mt-0 round-10 w-100"
               >
                 <p>
@@ -31,7 +31,7 @@ export default function CardLinks({ title, linkHandler, mode }) {
                   />
                 </p>
                 <NeumorphicContainer
-                  containerclassName="p-1px round-10 d-flex svgIcon"
+                  containerclassName="round-10 d-flex svgIcon"
                   subcontainerclasses="content_operator-icon round-10"
                 >
                   <FontAwesomeIcon icon={faChevronRight} />

@@ -104,7 +104,7 @@ export default function Home() {
             >
               {testThme === "riorpad" || testThme === "buwayne" ? (
                 <NeumorphicContainer
-                  containerclassName="neumorphic-container p-2"
+                  containerclassName="neumorphic-container"
                   subcontainerclasses="sub-container round-25 p-2"
                   isLayer={true}
                 >
@@ -167,7 +167,7 @@ export default function Home() {
                           </h3>
                           {data.Bio.trim() ? (
                             <NeumorphicContainer
-                              containerclassName="p-1 round-25 mt-3"
+                              containerclassName="round-25 mt-3"
                               subcontainerclasses="border-none mt-0 round-25 w-100"
                             >
                               <div className="hero-detail">

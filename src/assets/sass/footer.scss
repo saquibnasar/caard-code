@@ -1,113 +1,49 @@
 @import "./font.scss";
 @import "./custom.scss";
 .footer {
-  // position: absolute;
-  // bottom: 0;
-  // width: 100%;
-  margin-top: 28px;
+  margin-top: 80px;
+  margin-bottom: 24px;
   .caardClub {
+    width: 190px;
+    margin: auto;
+    background: $white-color;
+    box-shadow: 6.43px 7.66px 10px rgb(167 0 250 / 10%);
+    border-radius: 10px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    color: #222;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 26px;
-    height: 90px;
-    width: 100%;
-    gap: 0.5rem;
-    background: linear-gradient(
-      180deg,
-      rgba(36, 216, 255, 0) 0%,
-      rgba(101, 171, 193, 0.2) 100%
-    );
-
-    h4 {
-      font-family: "Darker Grotesque";
-      font-weight: 600;
-      font-size: 15px;
-      letter-spacing: 0.73px;
-      color: #8d8d8d;
-    }
-    h3 {
-      font-family: "Krub";
-      font-weight: 500;
-      font-size: 32px;
-      letter-spacing: 0.228px;
-      color: #000000;
-      text-shadow: 12px 13px 14px rgba(0, 0, 0, 0.25);
+    padding: 7px 14px;
+    height: 100%;
+    img {
+      margin-right: 0.7rem;
     }
   }
-  // padding-bottom: 1.5rem;
-  // .logo {
-  //   width: 21px;
-  //   margin-top: 40px;
-  // }
-  // .caardClub {
-  //   display: flex;
-  //   justify-content: center;
-  //   align-items: center;
-  //   color: #222;
-  //   font-weight: 600;
-  //   font-size: 14px;
-  //   line-height: 26px;
-  //   img {
-  //     margin-left: 2px;
-  //   }
-  // }
+  P {
+    font-family: "Cairo Play";
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 30px;
+    letter-spacing: 0.73px;
+    color: #141414;
+  }
 }
-.theme-consmy {
+
+.theme-consmy,
+.theme-buwayne {
   .footer {
     .caardClub {
+      p {
+        color: #141414;
+      }
+    }
+    p {
       color: $white-color;
     }
   }
 }
 .theme-phiverse {
   .footer {
-    margin-top: 28px;
     .caardClub {
-      background: $white-color;
-      box-shadow: 6.43px 7.66px 10px rgb(167 0 250 / 10%);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      padding: 7px 14px;
-      img {
-        width: 15.41px;
-        height: 26.06px;
-        margin-right: 9px;
-        margin-left: 0px;
-      }
-      P {
-        font-weight: 700;
-        font-size: 18px;
-      }
-    }
-  }
-}
-.theme-etyne {
-  .footer {
-    margin-top: 80px;
-    margin-bottom: 24px;
-    .caardClub {
-      width: 190px;
-      margin: auto;
-      background: $white-color;
-      box-shadow: 6.43px 7.66px 10px rgb(167 0 250 / 10%);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      padding: 7px 14px;
-      height: 100%;
-    }
-    P {
-      font-family: "Cairo Play";
-      font-weight: 500;
-      font-size: 15px;
-      line-height: 30px;
-      letter-spacing: 0.73px;
-      color: #141414;
+      width: 204px;
     }
   }
 }

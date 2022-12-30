@@ -15,10 +15,19 @@ $fontCairo: "Cairo", sans-serif;
   padding: 0;
   box-sizing: border-box;
 }
-
-body {
-  background: #616161;
+#root {
+  background: #efefef;
 }
+
+#root:has(.theme-riorpad),
+#root:has(.theme-buwayne) {
+  background: #fff;
+}
+
+#root:has(.theme-consmy) {
+  background: #252525;
+}
+
 .main-container {
   max-width: 25rem;
   width: 100%;
@@ -161,6 +170,9 @@ pre {
   font-style: normal;
   user-select: none;
 }
+pre {
+  white-space: pre-wrap;
+}
 
 h1 {
   color: $primary-color;
@@ -231,7 +243,8 @@ h3 {
   font-size: 16px;
   line-height: 30px;
 }
-.theme-phiverse {
+.theme-phiverse,
+.theme-dahwoo {
   h2 {
     font-weight: 700;
     font-size: 18px;
@@ -251,7 +264,9 @@ p {
   line-height: 127.9%;
   text-align: left;
 }
-.theme-phiverse {
+.theme-phiverse,
+.theme-dahwoo,
+.theme-dahwoo {
   p {
     font-weight: 600;
     font-size: 15px;
@@ -274,7 +289,8 @@ a {
   text-decoration: none;
 }
 
-.theme-phiverse {
+.theme-phiverse,
+.theme-dahwoo {
   h1,
   h2,
   h3,

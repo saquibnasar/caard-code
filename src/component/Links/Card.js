@@ -51,7 +51,7 @@ export default function Card({ StandardLinks, CustomLinks, mode, heroData }) {
                       rel="noopener noreferrer"
                     >
                       <NeumorphicContainer
-                        containerclassName="p-1px mt-4 round-10 d-flex"
+                        containerclassName="mt-4 round-10 d-flex"
                         subcontainerclasses="card border-none mt-0 round-10 w-100"
                         isLayer={false}
                       >
@@ -144,9 +144,11 @@ export default function Card({ StandardLinks, CustomLinks, mode, heroData }) {
                     rel="noopener noreferrer"
                   >
                     <NeumorphicContainer
-                      containerclassName="p-1px mt-4 round-10 d-flex"
+                      containerclassName="mt-4 round-10 d-flex"
                       subcontainerclasses={`border-none mt-0 round-10 w-100 ${
-                        value.IconUrl === null ? "customLinkCard" : "card"
+                        value.IconUrl === null
+                          ? "customLinkCard"
+                          : "card cardItem"
                       } `}
                       isLayer={false}
                     >

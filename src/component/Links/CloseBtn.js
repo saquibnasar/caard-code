@@ -6,9 +6,9 @@ export default function CloseBtn({ linkHandler, mode }) {
   return (
     <>
       {mode ? (
-        <div className="" onClick={linkHandler}>
+        <div className="cursor_pointer" onClick={linkHandler}>
           <NeumorphicContainer
-            containerclassName="rounded-circle neumorphic-btn d-flex justify-content-center align-items-center"
+            containerclassName="cursor_pointer rounded-circle neumorphic-btn d-flex justify-content-center align-items-center"
             subcontainerclasses="d-flex justify-content-center align-items-center rounded-circle w-51px h-51px"
           >
             <button>

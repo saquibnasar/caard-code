@@ -135,7 +135,8 @@
     }
   }
 }
-.theme-phiverse {
+.theme-phiverse,
+.theme-dahwoo {
   .card-section {
     .card {
       background: #ffffff;
@@ -182,8 +183,8 @@
     }
     .card:hover {
       background: #0e334c;
-      border: 1px solid $white-color;
-      box-shadow: 2px 3px 0px 2px $white-color;
+      border: 1px solid #1d313e;
+      box-shadow: 2px 3px 0px 2px #1d313e;
       p {
         color: $white-color;
       }
@@ -224,7 +225,7 @@
     }
     .cardItem {
       .card {
-        padding-left: 55px;
+        padding-left: 61px;
         padding-right: 24px;
       }
     }
