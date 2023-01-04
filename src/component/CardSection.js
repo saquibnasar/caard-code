@@ -23,17 +23,18 @@ export default function CardSection({ modeData, mode, heroData }) {
       }
     }
   };
+  const StandardLinks = JSON.parse(modeData.StandardLinks.Links);
+  const CustomLinks = JSON.parse(modeData.StandardLinks.Links);
 
   return (
     <>
       <section className="card-section">
         <div className="container">
-          {JSON.parse(modeData.StandardLinks.Links).length ||
-          JSON.parse(modeData.CustomLinks.Links).length ? (
+          {StandardLinks.length || CustomLinks.length ? (
             <>
               <Card
-                StandardLinks={JSON.parse(modeData.StandardLinks.Links)}
-                CustomLinks={JSON.parse(modeData.CustomLinks.Links)}
+                StandardLinks={StandardLinks}
+                CustomLinks={CustomLinks}
                 mode={mode}
                 heroData={heroData}
               />
@@ -41,7 +42,8 @@ export default function CardSection({ modeData, mode, heroData }) {
           ) : (
             ""
           )}
-          {JSON.parse(modeData.Slider.Links)[0].Title.trim() &&
+          {JSON.parse(modeData.Slider.Links)[0].Title &&
+          JSON.parse(modeData.Slider.Links)[0].Title.trim() &&
           (mode === "buwayne" ||
             mode === "shencho" ||
             mode === "consmy" ||

@@ -2,7 +2,6 @@ import React from "react";
 import NeumorphicContainer from "../NeumorphicContainer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLink } from "@fortawesome/free-solid-svg-icons";
-import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import TextLoader from "../TextLoader";
 export default function Card({ StandardLinks, CustomLinks, mode, heroData }) {
   return (

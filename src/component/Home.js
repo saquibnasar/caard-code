@@ -64,7 +64,7 @@ export default function Home() {
         } else if (linkType === "business") {
           setModeData(data.BusinessLinks);
         }
-        setTheme(data.Theme.toLowerCase());
+        setTheme(data.Theme.toLowerCase().split(" ")[0]);
         setData(data.PersonalInfo);
       });
   }, [userId]);
@@ -72,7 +72,6 @@ export default function Home() {
   let hero;
   let spanText;
   let headingText;
-  let testThme = "etyne";
 
   if (!(data === undefined)) {
     hero = JSON.parse(data.CoverImageLocation);
@@ -90,7 +89,7 @@ export default function Home() {
 
   return (
     <>
-      <div className={`main-container theme-${testThme}`}>
+      <div className={`main-container theme-${theme}`}>
         <Loader className="animationMOde" mode="home" />
         {modeData === undefined ? (
           <Loader />
@@ -102,7 +101,7 @@ export default function Home() {
               timeout={1000}
               classNames="fade"
             >
-              {testThme === "riorpad" || testThme === "buwayne" ? (
+              {theme === "riorpad" || theme === "buwayne" ? (
                 <NeumorphicContainer
                   containerclassName="neumorphic-container"
                   subcontainerclasses="sub-container round-25 p-2"
@@ -188,8 +187,8 @@ export default function Home() {
                       </div>
                     </section>
                     <MetaDecorator />
-                    <CardSection modeData={modeData} mode={testThme} />
-                    <Footer theme={theme} mode={testThme} />
+                    <CardSection modeData={modeData} mode={theme} />
+                    <Footer theme={theme} mode={theme} userName={data.Name} />
                   </div>
                 </NeumorphicContainer>
               ) : (
@@ -247,7 +246,7 @@ export default function Home() {
                         {data.Bio.trim() ? (
                           <div
                             className={
-                              testThme === "etyne" || testThme === "dahwoo"
+                              theme === "etyne" || theme === "dahwoo"
                                 ? "d-none"
                                 : "hero-detail"
                             }
@@ -268,17 +267,17 @@ export default function Home() {
                     </div>
                   </section>
                   <MetaDecorator />
-                  {testThme === "etyne" || testThme === "dahwoo" ? (
+                  {theme === "etyne" || theme === "dahwoo" ? (
                     <CardSection
                       modeData={modeData}
-                      mode={testThme}
+                      mode={theme}
                       heroData={data.Bio}
                     />
                   ) : (
-                    <CardSection modeData={modeData} mode={testThme} />
+                    <CardSection modeData={modeData} mode={theme} />
                   )}
 
-                  <Footer theme={theme} mode={testThme} userName={data.Name} />
+                  <Footer theme={theme} mode={theme} userName={data.Name} />
                 </div>
               )}
             </CSSTransition>

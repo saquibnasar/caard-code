@@ -14,11 +14,18 @@
     border: solid $white-color;
   }
 }
+
+.rpv-core__page-layer {
+  .rpv-core__spinner {
+    display: none;
+  }
+}
+
 .rpv-core__doc-loading {
   height: 300px;
   position: absolute;
   z-index: 4;
-  background: #fff;
+  background: #fff !important;
   width: 100%;
   max-width: 25rem;
   display: flex;
@@ -27,8 +34,9 @@
   flex-direction: column;
   overflow: hidden;
   .rpv-core__spinner {
-    width: 20px;
-    height: 20px;
+    display: block;
+    width: 40px !important;
+    height: 40px !important;
     border-radius: 50%;
     border: 2px solid #ddd;
     border-top: 2px solid $black-color;

@@ -27,9 +27,9 @@ export default function Loader({ mode, className }) {
               style={{
                 position: "absolute",
                 left: "0px",
-                top: "50%",
-                zIndex: 1,
-                height: "unset",
+                top: "0",
+                zIndex: 7,
+                height: "300px",
               }}
             >
               <div className="loading"></div>

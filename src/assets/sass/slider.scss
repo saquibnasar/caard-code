@@ -104,6 +104,9 @@
       text-align: start;
     }
   }
+  .download {
+    background: $white-color;
+  }
 }
 
 .theme-shencho {
@@ -114,8 +117,19 @@
     .swiper-content {
       border: 0.6px solid $white-color;
     }
+    .download {
+      background: #151515;
+    }
   }
 }
+.theme-consmy {
+  .slider {
+    .download {
+      background: #151515;
+    }
+  }
+}
+
 .theme-phiverse,
 .theme-dahwoo {
   .slider {
@@ -181,6 +195,9 @@
         font-size: 18px;
         letter-spacing: 0.228px;
         color: rgba(0, 32, 76, 0.9);
+      }
+      pre {
+        font-size: 16px;
       }
       .extra-btn {
         color: #006bffe5;

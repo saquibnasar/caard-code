@@ -8,15 +8,18 @@ export default function Slider({ data, linkHandler, isClosed, mode }) {
   const [currentPage, setCurrentPage] = useState(0);
   const [title, setTitle] = useState(data[0].Title);
   const [subTitle, setSubTitle] = useState(data[0].SubTitle);
+  const [datas, setDatas] = useState(data[0]);
 
   const changeTextHandler = (tupe) => {
     setTitle(data[tupe].Title);
     setSubTitle(data[tupe].SubTitle);
+    setDatas(datas[tupe]);
   };
 
   const changeTextDoteHandler = () => {
     setTitle(data[currentPage].Title);
     setSubTitle(data[currentPage].SubTitle);
+    setDatas(datas[currentPage]);
   };
 
   const slickDots = document.querySelector(".slick-dots");
@@ -74,7 +77,7 @@ export default function Slider({ data, linkHandler, isClosed, mode }) {
                     className="round-0"
                   />
                 </div>
-                {title.trim() ? (
+                {title && title.trim() ? (
                   <div
                     className={
                       isClosed
@@ -94,7 +97,7 @@ export default function Slider({ data, linkHandler, isClosed, mode }) {
                 ) : (
                   ""
                 )}
-                {subTitle.trim() ? (
+                {subTitle && subTitle.trim() ? (
                   <div
                     className={
                       isClosed ? "swiper-content order-3" : "swiper-content"
@@ -111,6 +114,20 @@ export default function Slider({ data, linkHandler, isClosed, mode }) {
                         btnClass="slider__btn"
                       />
                     </pre>
+                  </div>
+                ) : (
+                  ""
+                )}
+
+                {datas.SliderUrl && datas.SliderUrl.trim() ? (
+                  <div className="download pb-4 order-4">
+                    <a
+                      href={datas.SliderUrl}
+                      target="_black"
+                      className="download_btn"
+                    >
+                      learn more
+                    </a>
                   </div>
                 ) : (
                   ""

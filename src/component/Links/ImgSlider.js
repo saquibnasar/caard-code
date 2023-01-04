@@ -10,11 +10,9 @@ export default function ImgSlider(props) {
           <Slider {...props.settings}>
             {props.sliderImg.map((value, id) => {
               return (
-                <a href={props.SliderUrl}>
-                  <div key={id} className="swiper-slide">
-                    <img className="img-fluid" src={value.URL} alt="" />
-                  </div>
-                </a>
+                <div key={id} className="swiper-slide">
+                  <img className="img-fluid" src={value.URL} alt="" />
+                </div>
               );
             })}
           </Slider>
