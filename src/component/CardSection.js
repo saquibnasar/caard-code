@@ -24,7 +24,7 @@ export default function CardSection({ modeData, mode, heroData }) {
     }
   };
   const StandardLinks = JSON.parse(modeData.StandardLinks.Links);
-  const CustomLinks = JSON.parse(modeData.StandardLinks.Links);
+  const CustomLinks = JSON.parse(modeData.CustomLinks.Links);
 
   return (
     <>

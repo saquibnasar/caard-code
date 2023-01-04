@@ -42,7 +42,7 @@ export default function Home() {
               (value) => value.isActive === true
             );
             if (filterStandardLinks.length) {
-              let filterStandardLink = `https://${filterStandardLinks[0].URL}`;
+              let filterStandardLink = filterStandardLinks[0].URL;
               if (filterStandardLinks[0].Name === "Phone") {
                 filterStandardLink = `tel:${filterStandardLinks[0].URL}`;
               } else if (filterStandardLinks[0].Name === "Whatsapp") {

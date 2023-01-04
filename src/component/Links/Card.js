@@ -174,6 +174,7 @@ export default function Card({ StandardLinks, CustomLinks, mode, heroData }) {
               if (mode === "dahwoo" && !(value.IconUrl === null)) {
                 return (
                   <div className="mt-4">
+                    {console.log(value)}
                     <a
                       key={id}
                       href={value.URL}

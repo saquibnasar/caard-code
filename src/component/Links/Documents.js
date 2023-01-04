@@ -104,16 +104,20 @@ export default function Documents({ data, linkHandler, isClosed, mode }) {
     setTimeout(() => {
       zoom.onZoom(SpecialZoomLevel.PageWidth);
       if (!(pdf_one === null) && pdf_one.style.height) {
-        console.log(pdf_one.style.height);
         setLoader(loader + 1);
-        document_container.style.height = "100%";
+        setTimeout(() => {
+          document_container.style.height = "100%";
+        }, 1000);
       }
     }, 1000);
   };
 
   return (
     <>
-      <div className="mt-4 h-100 overflow-hidden slider document_container p-relative">
+      <div
+        className="mt-4 h-100 overflow-hidden slider document_container p-relative"
+        style={{ height: "300px" }}
+      >
         <CSSTransition
           in={true}
           appear={true}
@@ -200,12 +204,16 @@ export default function Documents({ data, linkHandler, isClosed, mode }) {
             ) : (
               <div className="p-relative">
                 <div className="document slider border-none">
+                  {!(loader > 2) ? (
+                    <div className="order-2">
+                      <Loader mode="document" />
+                    </div>
+                  ) : (
+                    ""
+                  )}
                   <div className={isClosed ? "order-2 pdf" : "pdf"}>
                     <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.0.279/build/pdf.worker.min.js">
-                      <div
-                        className="pdf_container"
-                        style={{ height: "300px" }}
-                      >
+                      <div className="pdf_container">
                         <Viewer
                           fileUrl={data.URL}
                           scrollMode={ScrollMode.Horizontal}
