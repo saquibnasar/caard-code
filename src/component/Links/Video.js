@@ -63,12 +63,26 @@ export default function Video({ data, linkHandler, isClosed, mode }) {
                   ) : (
                     ""
                   )}
+                  <div className="_username__featuredLink__MeYB7">
+                    <div className="BaseEmbeddedLink_baseEmbeddedLinkWrapper__SlpfZ">
+                      <div className="BaseEmbeddedLink_baseEmbeddedLink__WXu5a">
+                        <div className="BaseEmbeddedLink_baseEmbeddedLinkContainer__SlSm5 BaseEmbeddedLink_baseEmbeddedLinkContainerEmbed__py5x8">
+                          <div className="BaseEmbeddedLink_baseEmbeddedLinkItem__EDHSQ BaseEmbeddedLink_baseEmbeddedLinkItemVisible__63uQ_">
+                            <div className="EmbeddedYouTube_embeddedYouTube__kZebg EmbeddedYouTube_featuredLinkEmbeddedVideo__GERzu">
+                              <div>
+                                <iframe
+                                  className="EmbeddedYouTube_embeddedVideoIframe__BnmH8"
+                                  src={`https://www.youtube.com/embed/${url}?mute=1&showinfo=0&amp;modestbranding=1&modestbranding=3&controls=0&rel=1&height="250"`}
+                                  allowFullScreen
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
-                  <iframe
-                    className="youtube_video"
-                    src={`https://www.youtube.com/embed/${url}?mute=1&showinfo=0&modestbranding=3`}
-                    allowFullScreen
-                  />
                   {!isClosed ? <CloseBtn linkHandler={linkHandler} /> : ""}
                 </>
               )}

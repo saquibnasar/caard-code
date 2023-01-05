@@ -55,7 +55,7 @@ export default function Home() {
               const filterCustomLinks = CustomLinks.filter(
                 (value) => value.isActive === true
               );
-              let filterCustomLink = `https://${filterCustomLinks[0].URL}`;
+              let filterCustomLink = filterCustomLinks[0].URL;
               window.location.replace(filterCustomLink);
             }
           }

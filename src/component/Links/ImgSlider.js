@@ -9,11 +9,21 @@ export default function ImgSlider(props) {
         <div className={`swiper-wrapper ${props.className}`}>
           <Slider {...props.settings}>
             {props.sliderImg.map((value, id) => {
-              return (
-                <div key={id} className="swiper-slide">
-                  <img className="img-fluid" src={value.URL} alt="" />
-                </div>
-              );
+              console.log(value.isActive);
+              if (value.isActive) {
+                return (
+                  <div key={id} className="swiper-slide">
+                    <img className="img-fluid" src={value.URL} alt="" />
+                  </div>
+                );
+              } else if (value.isActive === undefined) {
+                return (
+                  <div key={id} className="swiper-slide">
+                    <img className="img-fluid" src={value.URL} alt="" />
+                  </div>
+                );
+              }
+              return "";
             })}
           </Slider>
         </div>

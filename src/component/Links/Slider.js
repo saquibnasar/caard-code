@@ -8,18 +8,18 @@ export default function Slider({ data, linkHandler, isClosed, mode }) {
   const [currentPage, setCurrentPage] = useState(0);
   const [title, setTitle] = useState(data[0].Title);
   const [subTitle, setSubTitle] = useState(data[0].SubTitle);
-  const [datas, setDatas] = useState(data[0]);
+  const [sliderUrl, setSliderUrl] = useState(data[0].SliderUrl);
 
   const changeTextHandler = (tupe) => {
     setTitle(data[tupe].Title);
     setSubTitle(data[tupe].SubTitle);
-    setDatas(datas[tupe]);
+    setSliderUrl(data[tupe].SliderUrl);
   };
 
   const changeTextDoteHandler = () => {
     setTitle(data[currentPage].Title);
     setSubTitle(data[currentPage].SubTitle);
-    setDatas(datas[currentPage]);
+    setSliderUrl(data[currentPage].SliderUrl);
   };
 
   const slickDots = document.querySelector(".slick-dots");
@@ -119,10 +119,10 @@ export default function Slider({ data, linkHandler, isClosed, mode }) {
                   ""
                 )}
 
-                {datas.SliderUrl && datas.SliderUrl.trim() ? (
+                {sliderUrl && sliderUrl.trim() ? (
                   <div className="download pb-4 order-4">
                     <a
-                      href={datas.SliderUrl}
+                      href={sliderUrl}
                       target="_black"
                       className="download_btn"
                     >
