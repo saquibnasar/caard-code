@@ -41,8 +41,10 @@ export default function Home() {
             const filterStandardLinks = StandardLinks.filter(
               (value) => value.isActive === true
             );
+
             if (filterStandardLinks.length) {
               let filterStandardLink = filterStandardLinks[0].URL;
+
               if (filterStandardLinks[0].Name === "Phone") {
                 filterStandardLink = `tel:${filterStandardLinks[0].URL}`;
               } else if (filterStandardLinks[0].Name === "Whatsapp") {
@@ -50,11 +52,13 @@ export default function Home() {
               } else if (filterStandardLinks[0].Name === "Gmail") {
                 filterStandardLink = `mailto:${filterStandardLinks[0].URL}`;
               }
+
               window.location.replace(filterStandardLink);
             } else {
               const filterCustomLinks = CustomLinks.filter(
                 (value) => value.isActive === true
               );
+              console.log(filterCustomLinks);
               let filterCustomLink = filterCustomLinks[0].URL;
               window.location.replace(filterCustomLink);
             }

@@ -42,12 +42,10 @@ export default function CardSection({ modeData, mode, heroData }) {
           ) : (
             ""
           )}
-          {JSON.parse(modeData.Slider.Links)[0].Title &&
-          JSON.parse(modeData.Slider.Links)[0].Title.trim() &&
-          (mode === "buwayne" ||
-            mode === "shencho" ||
-            mode === "consmy" ||
-            mode === "riorpad") ? (
+          {mode === "buwayne" ||
+          mode === "shencho" ||
+          mode === "consmy" ||
+          mode === "riorpad" ? (
             <>
               {JSON.parse(modeData.Slider.Links).length &&
               JSON.parse(modeData.Slider.isActive) ? (
@@ -88,11 +86,10 @@ export default function CardSection({ modeData, mode, heroData }) {
             </>
           )}
 
-          {modeData.Document.Title.trim() &&
-          (mode === "buwayne" ||
-            mode === "shencho" ||
-            mode === "consmy" ||
-            mode === "riorpad") ? (
+          {mode === "buwayne" ||
+          mode === "shencho" ||
+          mode === "consmy" ||
+          mode === "riorpad" ? (
             <>
               {modeData.Document.URL && modeData.Document.isActive ? (
                 <>
