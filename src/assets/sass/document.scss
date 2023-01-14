@@ -1,3 +1,5 @@
+@import "./font.scss";
+@import "./custom.scss";
 .document {
   overflow: hidden;
   .swiper-content {
@@ -223,13 +225,15 @@
 }
 
 .theme-consmy {
-  .document {
+  .pdfSliderDirect {
     .swiper-content {
-      border-left: 0.6px solid #9c9c9c !important;
-      border-right: 0.6px solid #9c9c9c !important;
+      p {
+        color: $white-color;
+      }
     }
+  }
+  .document {
     .download {
-      border: 0.6px solid #9c9c9c;
       border-top: none;
     }
   }
@@ -996,6 +1000,39 @@
         display: none;
       }
     }
+    .download {
+      justify-content: center;
+      padding-bottom: 10px;
+      background: transparent;
+      .download_btn {
+        padding: 10px 21px;
+        box-shadow: none;
+        a {
+          font-family: "Poppins", sans-serif;
+          font-weight: 600;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+  .pdfSliderDirect {
+    .document {
+      padding: 0px;
+      background: transparent;
+      border-radius: 0px;
+      .rpv-core__inner-pages {
+        border-radius: 25px;
+      }
+    }
+    .swiper-content {
+      p {
+        text-align: start;
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        font-size: 18px;
+        color: $white-color;
+      }
+    }
   }
 }
 .theme-etyne {
@@ -1020,9 +1057,45 @@
   }
 }
 
+.theme-riorpad {
+  .document_container {
+    .neumorphic {
+      box-shadow: none;
+    }
+  }
+  .pdfSliderDirect {
+    .swiper-content {
+      p {
+        color: #47556d;
+      }
+    }
+  }
+}
 .rpv-core__inner-pages::-webkit-scrollbar {
   display: none;
 }
 .rpv-core__inner-pages {
   scroll-behavior: smooth;
+}
+.pdfSliderDirect {
+  .document {
+    padding: 8px;
+    background: #fff;
+    border-radius: 24px;
+    .pdf {
+      .rpv-core__inner-pages {
+        border-radius: 24px;
+      }
+    }
+  }
+  .swiper-content {
+    margin-top: 1rem;
+    p {
+      text-align: start;
+      font-family: "Poppins", sans-serif;
+      font-weight: 600;
+      font-size: 18px;
+      color: #47556d;
+    }
+  }
 }

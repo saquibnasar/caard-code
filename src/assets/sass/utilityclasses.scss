@@ -1,5 +1,6 @@
 @import "./custom.scss";
 @import "./font.scss";
+@import "./mediaqueries.scss";
 .extra-btn {
   font-family: $fontCairo;
   font-style: normal;
@@ -196,6 +197,9 @@
 .text-center {
   text-align: center;
 }
+.m-auto {
+  margin: auto;
+}
 .mt-5 {
   margin-top: 3rem !important;
 }
@@ -229,6 +233,13 @@
 }
 .pb-4 {
   padding-bottom: 1.5rem;
+}
+.pb-3 {
+  padding-bottom: 1rem;
+}
+.cardPadding {
+  padding-left: 55px !important;
+  padding-right: 24px !important;
 }
 
 // box shadow
@@ -279,4 +290,84 @@
 }
 .content_operator-icon {
   padding: 16px 19px;
+}
+.TopBar {
+  position: fixed;
+  z-index: 1000;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  top: 16px;
+  background: linear-gradient(
+    180deg,
+    rgba(129, 133, 136, 0.4) 0%,
+    rgba(197, 199, 200, 0.184828) 40.63%,
+    rgba(255, 255, 255, 0.04) 75.52%,
+    rgba(66, 66, 66, 0.1) 100%
+  );
+  box-shadow: 0px 4px 24px -1px rgb(100 100 100 / 20%);
+  backdrop-filter: blur(20px);
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  @include media440 {
+    width: 95%;
+  }
+  .logo {
+    img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+  }
+  h1 {
+    color: $white-color;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 23px;
+    text-align: center;
+  }
+  .share {
+    width: 50px;
+    height: 50px;
+    background: $white-color;
+    border-radius: 33px;
+    justify-content: center;
+    align-items: center;
+    color: $black-color;
+    display: flex;
+  }
+}
+.theme-buwayne,
+.theme-consmy {
+  .TopBar {
+    background: linear-gradient(
+      95.71deg,
+      rgba(255, 255, 255, 0.4) 36.31%,
+      rgba(255, 255, 255, 0.4) 36.32%,
+      rgba(255, 255, 255, 0.1) 77.59%
+    );
+    box-shadow: 0px 4px 24px -10px rgb(255 255 255 / 20%);
+    backdrop-filter: blur(10px);
+    border-radius: 25px;
+
+    h1 {
+      color: $white-color;
+    }
+    .share {
+      background: $white-color;
+      color: #222;
+    }
+  }
+}
+.footer_bottom {
+  width: 350px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
 }

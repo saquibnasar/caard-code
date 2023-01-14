@@ -5,7 +5,7 @@ import Slider from "./Links/Slider";
 import Documents from "./Links/Documents";
 import CardLinks from "./Links/CardLinks";
 
-export default function CardSection({ modeData, mode, heroData }) {
+export default function CardSection({ modeData, theme, heroData, mode }) {
   const [documentsIsTrue, setDocumentsIsTrue] = useState(true);
   const [videoIsTrue, setVideoIsTrue] = useState(true);
   const [sliderIsTrue, setSliderIsTrue] = useState(true);
@@ -23,145 +23,201 @@ export default function CardSection({ modeData, mode, heroData }) {
       }
     }
   };
+
   const StandardLinks = JSON.parse(modeData.StandardLinks.Links);
   const CustomLinks = JSON.parse(modeData.CustomLinks.Links);
+  const slider = JSON.parse(modeData.Slider.Links);
+  let isSliderValueTrue = false;
+  for (const slidertest of slider) {
+    if (slidertest.isActive) {
+      isSliderValueTrue = slidertest.isActive;
+    }
+  }
 
   return (
     <>
       <section className="card-section">
         <div className="container">
-          {StandardLinks.length || CustomLinks.length ? (
+          {mode === "direct" ? (
             <>
-              <Card
-                StandardLinks={StandardLinks}
-                CustomLinks={CustomLinks}
-                mode={mode}
-                heroData={heroData}
-              />
-            </>
-          ) : (
-            ""
-          )}
-          {mode === "buwayne" ||
-          mode === "shencho" ||
-          mode === "consmy" ||
-          mode === "riorpad" ? (
-            <>
-              {JSON.parse(modeData.Slider.Links).length &&
-              JSON.parse(modeData.Slider.isActive) ? (
-                <>
-                  {sliderIsTrue ? (
-                    <CardLinks
-                      title={JSON.parse(modeData.Slider.Links)[0].Title}
-                      linkHandler={linkHandler.bind(this, "slider")}
-                      mode={mode}
-                    />
-                  ) : (
-                    <Slider
-                      data={JSON.parse(modeData.Slider.Links)}
-                      linkHandler={linkHandler.bind(this, "slider")}
-                      mode={mode}
-                    />
-                  )}
-                </>
+              {isSliderValueTrue ? (
+                <Slider
+                  data={JSON.parse(modeData.Slider.Links)}
+                  linkHandler={linkHandler.bind(this, "slider")}
+                  theme={theme}
+                  mode={mode}
+                />
               ) : (
                 ""
               )}
-            </>
-          ) : (
-            <>
-              {JSON.parse(modeData.Slider.Links).length &&
-              JSON.parse(modeData.Slider.isActive) ? (
-                <>
-                  <Slider
-                    data={JSON.parse(modeData.Slider.Links)}
-                    linkHandler={linkHandler.bind(this, "slider")}
-                    isClosed={mode}
-                    mode={mode}
-                  />
-                </>
-              ) : (
-                ""
-              )}
-            </>
-          )}
 
-          {mode === "buwayne" ||
-          mode === "shencho" ||
-          mode === "consmy" ||
-          mode === "riorpad" ? (
-            <>
               {modeData.Document.URL && modeData.Document.isActive ? (
-                <>
-                  {documentsIsTrue ? (
-                    <CardLinks
-                      title={modeData.Document.Title}
-                      linkHandler={linkHandler.bind(this, "document")}
-                      mode={mode}
-                    />
-                  ) : (
-                    <Documents
-                      data={modeData.Document}
-                      linkHandler={linkHandler.bind(this, "document")}
-                      mode={mode}
-                    />
-                  )}
-                </>
+                <Documents
+                  data={modeData.Document}
+                  linkHandler={linkHandler.bind(this, "document")}
+                  theme={theme}
+                  mode={mode}
+                />
               ) : (
                 ""
               )}
-            </>
-          ) : (
-            <>
-              {modeData.Document.URL && modeData.Document.isActive ? (
-                <>
-                  <Documents
-                    data={modeData.Document}
-                    linkHandler={linkHandler.bind(this, "document")}
-                    isClosed={mode}
-                    mode={mode}
-                  />
-                </>
-              ) : (
-                ""
-              )}
-            </>
-          )}
 
-          {mode === "phiverse" || mode === "dahwoo" || mode === "etyne" ? (
-            <>
               {modeData.FeaturedVideo && modeData.FeaturedVideo.isActive ? (
-                <>
-                  <Video
-                    data={modeData.FeaturedVideo}
-                    linkHandler={linkHandler.bind(this, "video")}
-                    isClosed={mode}
-                  />
-                </>
+                <Video
+                  data={modeData.FeaturedVideo}
+                  linkHandler={linkHandler.bind(this, "video")}
+                  theme={theme}
+                  mode={mode}
+                />
               ) : (
                 ""
               )}
             </>
           ) : (
             <>
-              {modeData.FeaturedVideo && modeData.FeaturedVideo.isActive ? (
+              {StandardLinks.length || CustomLinks.length ? (
                 <>
-                  {videoIsTrue ? (
-                    <CardLinks
-                      title={modeData.FeaturedVideo.Title}
-                      linkHandler={linkHandler.bind(this, "video")}
-                      mode={mode}
-                    />
+                  <Card
+                    StandardLinks={StandardLinks}
+                    CustomLinks={CustomLinks}
+                    theme={theme}
+                    heroData={heroData}
+                  />
+                </>
+              ) : (
+                ""
+              )}
+              {isSliderValueTrue ? (
+                <>
+                  {theme === "buwayne" ||
+                  theme === "shencho" ||
+                  theme === "consmy" ||
+                  theme === "riorpad" ? (
+                    <>
+                      {JSON.parse(modeData.Slider.Links).length &&
+                      JSON.parse(modeData.Slider.isActive) ? (
+                        <>
+                          {sliderIsTrue ? (
+                            <CardLinks
+                              title={JSON.parse(modeData.Slider.Links)[0].Title}
+                              linkHandler={linkHandler.bind(this, "slider")}
+                              mode={theme}
+                            />
+                          ) : (
+                            <Slider
+                              data={JSON.parse(modeData.Slider.Links)}
+                              linkHandler={linkHandler.bind(this, "slider")}
+                              theme={theme}
+                            />
+                          )}
+                        </>
+                      ) : (
+                        ""
+                      )}
+                    </>
                   ) : (
-                    <Video
-                      data={modeData.FeaturedVideo}
-                      linkHandler={linkHandler.bind(this, "video")}
-                      mode={mode}
-                    />
+                    <>
+                      {JSON.parse(modeData.Slider.Links).length &&
+                      JSON.parse(modeData.Slider.isActive) ? (
+                        <>
+                          <Slider
+                            data={JSON.parse(modeData.Slider.Links)}
+                            linkHandler={linkHandler.bind(this, "slider")}
+                            isClosed={theme}
+                            theme={theme}
+                          />
+                        </>
+                      ) : (
+                        ""
+                      )}
+                    </>
                   )}
                 </>
               ) : (
                 ""
+              )}
+              {theme === "buwayne" ||
+              theme === "shencho" ||
+              theme === "consmy" ||
+              theme === "riorpad" ? (
+                <>
+                  {modeData.Document.URL &&
+                  modeData.Document.Title &&
+                  modeData.Document.isActive ? (
+                    <>
+                      {documentsIsTrue ? (
+                        <CardLinks
+                          title={modeData.Document.Title}
+                          linkHandler={linkHandler.bind(this, "document")}
+                          mode={theme}
+                        />
+                      ) : (
+                        <Documents
+                          data={modeData.Document}
+                          linkHandler={linkHandler.bind(this, "document")}
+                          theme={theme}
+                        />
+                      )}
+                    </>
+                  ) : (
+                    ""
+                  )}
+                </>
+              ) : (
+                <>
+                  {modeData.Document.URL && modeData.Document.isActive ? (
+                    <>
+                      <Documents
+                        data={modeData.Document}
+                        linkHandler={linkHandler.bind(this, "document")}
+                        isClosed={theme}
+                        theme={theme}
+                      />
+                    </>
+                  ) : (
+                    ""
+                  )}
+                </>
+              )}
+              {theme === "phiverse" ||
+              theme === "dahwoo" ||
+              theme === "etyne" ? (
+                <>
+                  {modeData.FeaturedVideo && modeData.FeaturedVideo.isActive ? (
+                    <>
+                      <Video
+                        data={modeData.FeaturedVideo}
+                        linkHandler={linkHandler.bind(this, "video")}
+                        isClosed={theme}
+                        theme={theme}
+                      />
+                    </>
+                  ) : (
+                    ""
+                  )}
+                </>
+              ) : (
+                <>
+                  {modeData.FeaturedVideo && modeData.FeaturedVideo.isActive ? (
+                    <>
+                      {videoIsTrue ? (
+                        <CardLinks
+                          title={modeData.FeaturedVideo.Title}
+                          linkHandler={linkHandler.bind(this, "video")}
+                          mode={theme}
+                        />
+                      ) : (
+                        <Video
+                          data={modeData.FeaturedVideo}
+                          linkHandler={linkHandler.bind(this, "video")}
+                          theme={theme}
+                        />
+                      )}
+                    </>
+                  ) : (
+                    ""
+                  )}
+                </>
               )}
             </>
           )}

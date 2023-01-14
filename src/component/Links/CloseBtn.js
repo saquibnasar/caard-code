@@ -11,14 +11,14 @@ export default function CloseBtn({ linkHandler, mode }) {
             containerclassName="cursor_pointer rounded-circle neumorphic-btn d-flex justify-content-center align-items-center"
             subcontainerclasses="d-flex justify-content-center align-items-center rounded-circle w-51px h-51px"
           >
-            <button>
+            <button className="cursor_pointer">
               <FontAwesomeIcon icon={faXmark} />
             </button>
           </NeumorphicContainer>
         </div>
       ) : (
         <div className="d-flex justify-content-center">
-          <button className="close_btn" onClick={linkHandler}>
+          <button className="close_btn cursor_pointer" onClick={linkHandler}>
             <FontAwesomeIcon icon={faXmark} />
           </button>
         </div>

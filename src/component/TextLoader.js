@@ -26,11 +26,9 @@ export default function TextLoader({ text, characterNumber, btnClass }) {
 
     if (slider__paraBtn) {
       slider__paraBtn.classList.remove("d-none");
-      slider__paraBtn.classList.add("d-flex");
     }
     if (slider__titleBtn) {
       slider__titleBtn.classList.remove("d-none");
-      slider__titleBtn.classList.add("d-flex");
     }
   }, [text]);
 
@@ -41,7 +39,7 @@ export default function TextLoader({ text, characterNumber, btnClass }) {
 
   return (
     <>
-      {changeText}
+      {changeText}{" "}
       {subText.length ? (
         <button className={`extra-btn ${btnClass}`} onClick={showHeroDetail}>
           ...more

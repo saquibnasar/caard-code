@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 export default function MetaDecorator() {
   return (
     <Helmet>
-      <title>Caard</title>
+      <title>flax.ai</title>
       <meta data-react-helmet="true" name="title" content="dummy text" />
       <meta data-react-helmet="true" name="description" content="dummy text" />
       <meta data-react-helmet="true" property="og:title" content="dummy text" />

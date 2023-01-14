@@ -2,14 +2,27 @@ import React from "react";
 import NeumorphicContainer from "../NeumorphicContainer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLink } from "@fortawesome/free-solid-svg-icons";
+// import { faAirbnb } from "@fortawesome/free-brands-svg-icons";
+// import { faMusic } from "@fortawesome/free-brands-svg-icons";
+// import { faAppStore } from "@fortawesome/free-brands-svg-icons";
+// import { faBehance } from "@forta   wesome/free-brands-svg-icons";
+// import { faBlogger } from "@fortawesome/free-brands-svg-icons";
+// import { faBook } from "@fortawesome/free-solid-svg-icons";
+// import { faBumble } from "@fortawesome/free-brands-svg-icons";
+// import { faCoffee } from "@fortawesome/free-solid-svg-icons";
+// import { faShoppingBag } from "@fortawesome/free-solid-svg-icons";
+// import { faCashApp } from "@fortawesome/free-brands-svg-icons";
+// import { faClubHouse } from "@fortawesome/free-brands-svg-icons";
+import { faYoutube } from "@fortawesome/free-brands-svg-icons";
+import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import TextLoader from "../TextLoader";
-export default function Card({ StandardLinks, CustomLinks, mode, heroData }) {
+export default function Card({ StandardLinks, CustomLinks, theme, heroData }) {
   return (
     <>
       <div className="cardItem">
         <div
           className={
-            mode === "dahwoo" || mode === "etyne"
+            theme === "dahwoo" || theme === "etyne"
               ? "social_media d-flex justify-content-center align-items-center mt-4 gap-2"
               : ""
           }
@@ -19,7 +32,9 @@ export default function Card({ StandardLinks, CustomLinks, mode, heroData }) {
                 if (!value.isActive) {
                   return "";
                 }
+
                 let link = `${value.URL}`;
+                let icon;
                 let url = value.Name;
                 if (url === "Whatsapp group") {
                   url = "Whatsapp";
@@ -39,9 +54,119 @@ export default function Card({ StandardLinks, CustomLinks, mode, heroData }) {
                   link = `https://wa.me/${value.URL}`;
                 } else if (url === "Gmail") {
                   link = `mailto:${value.URL}`;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Instagram") {
+                  icon = faInstagram;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
+                } else if (value.Name === "Youtube") {
+                  icon = faYoutube;
                 }
 
-                if (mode === "riorpad" || mode === "buwayne") {
+                if (theme === "riorpad" || theme === "buwayne") {
                   return (
                     <a
                       key={id}
@@ -59,7 +184,7 @@ export default function Card({ StandardLinks, CustomLinks, mode, heroData }) {
                           subcontainerclasses="round-10 d-flex p-2 icon"
                           isLayer={false}
                         >
-                          {/* <FontAwesomeIcon icon={faInstagram} /> */}
+                          {/* <FontAwesomeIcon icon={icon} /> */}
                           <img
                             className="img-fluid"
                             src={`/social_icon/${url.toLowerCase()}.svg`}
@@ -72,12 +197,12 @@ export default function Card({ StandardLinks, CustomLinks, mode, heroData }) {
                     </a>
                   );
                 }
-                if (mode === "dahwoo" || mode === "etyne") {
+                if (theme === "dahwoo" || theme === "etyne") {
                   return (
                     <a
                       key={id}
                       href={link}
-                      className={mode === "dahwoo" ? "theme_dahwoo-card" : ""}
+                      className={theme === "dahwoo" ? "theme_dahwoo-card" : ""}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -134,7 +259,7 @@ export default function Card({ StandardLinks, CustomLinks, mode, heroData }) {
               if (!value.isActive) {
                 return "";
               }
-              if (mode === "riorpad" || mode === "buwayne") {
+              if (theme === "riorpad" || theme === "buwayne") {
                 return (
                   <a
                     key={id}
@@ -171,10 +296,9 @@ export default function Card({ StandardLinks, CustomLinks, mode, heroData }) {
                   </a>
                 );
               }
-              if (mode === "dahwoo" && !(value.IconUrl === null)) {
+              if (theme === "dahwoo" && !(value.IconUrl === null)) {
                 return (
                   <div className="mt-4">
-                    {console.log(value)}
                     <a
                       key={id}
                       href={value.URL}
@@ -196,9 +320,7 @@ export default function Card({ StandardLinks, CustomLinks, mode, heroData }) {
                   key={id}
                   href={value.URL}
                   className={
-                    mode === "etyne" && value.IconUrl === null
-                      ? "customLinkCard card"
-                      : "card"
+                    value.IconUrl === null ? "card" : "card cardPadding"
                   }
                   target="_blank"
                   rel="noopener noreferrer"

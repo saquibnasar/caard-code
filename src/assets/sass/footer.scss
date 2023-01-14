@@ -4,15 +4,14 @@
   margin-top: 80px;
   margin-bottom: 24px;
   .caardClub {
-    width: 190px;
+    display: inline-flex;
     margin: auto;
     background: $white-color;
-    box-shadow: 6.43px 7.66px 10px rgb(167 0 250 / 10%);
     border-radius: 10px;
-    display: flex;
     align-items: center;
     padding: 7px 14px;
     height: 100%;
+    box-shadow: 6.43px 7.66px 10px rgb(167 0 250 / 10%);
     img {
       margin-right: 0.7rem;
     }
@@ -44,7 +43,16 @@
 .theme-dahwoo {
   .footer {
     .caardClub {
-      width: 204px;
+      width: 208px;
+    }
+  }
+}
+.theme-consmy,
+.theme-riorpad,
+.theme-buwayne {
+  .footer {
+    .caardClub {
+      box-shadow: unset;
     }
   }
 }
