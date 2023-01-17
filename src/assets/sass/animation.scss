@@ -66,16 +66,23 @@
 // slide
 
 .slide-appear {
-  transform: translateY(100%);
+  transform: translateX(0%);
   z-index: 1;
+  position: absolute;
+  z-index: 100000;
 }
 .slide-appear-active {
-  transform: translateY(0%);
-  transition: transform 3000ms ease-in-out;
+  transform: translateX(-100%);
+  transition: transform 1000ms ease-in-out;
+  position: absolute;
+  z-index: 100000;
 }
 .slide-appear-done {
-  transform: translateY(0%);
-  transition: transform 3000ms ease-in-out;
+  transform: translateX(-100%);
+  transition: transform 1000ms ease-in-out;
+  position: absolute;
+  z-index: 100000;
+  display: none;
 }
 
 // slide_Fade

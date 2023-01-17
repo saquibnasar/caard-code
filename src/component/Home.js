@@ -136,6 +136,14 @@ export default function Home() {
                     isLayer={true}
                   >
                     <div className="primary_container round-25 p-relative h-100vh">
+                      <CSSTransition
+                        in={true}
+                        appear={true}
+                        timeout={1000}
+                        classNames={modeData === undefined ? "" : "slide"}
+                      >
+                        <Loader mode="home" />
+                      </CSSTransition>
                       <div className="TopBar d-none">
                         {data.ImageLocation ? (
                           <div
@@ -170,6 +178,14 @@ export default function Home() {
                   </NeumorphicContainer>
                 ) : (
                   <div className="primary_container p-relative h-100vh">
+                    <CSSTransition
+                      in={true}
+                      appear={true}
+                      timeout={1000}
+                      classNames={modeData === undefined ? "" : "slide"}
+                    >
+                      <Loader mode="home" />
+                    </CSSTransition>
                     <div className="TopBar d-none">
                       {data.ImageLocation ? (
                         <div
@@ -211,16 +227,148 @@ export default function Home() {
                 timeout={1000}
                 classNames="fade"
               >
-                {theme === "riorpad" || theme === "buwayne" ? (
-                  <NeumorphicContainer
-                    containerclassName="neumorphic-container"
-                    subcontainerclasses="sub-container round-25 p-2"
-                    isLayer={true}
-                  >
-                    <div className="primary_container round-25 p-relative">
+                <>
+                  {theme === "riorpad" || theme === "buwayne" ? (
+                    <NeumorphicContainer
+                      containerclassName="neumorphic-container"
+                      subcontainerclasses="sub-container round-25 p-2"
+                      isLayer={true}
+                    >
+                      <div className="primary_container round-25 p-relative">
+                        <CSSTransition
+                          in={true}
+                          appear={true}
+                          timeout={1000}
+                          classNames={modeData === undefined ? "" : "slide"}
+                        >
+                          <Loader mode="home" />
+                        </CSSTransition>
+                        <section className="hero">
+                          {hero.length ? (
+                            <div className="slider border-none">
+                              <ImgSlider
+                                settings={settings}
+                                sliderImg={hero}
+                                className="round-0"
+                                border="slick-list-border-0"
+                              />
+                            </div>
+                          ) : (
+                            ""
+                          )}
+                          {data.ImageLocation ? (
+                            <div
+                              className={
+                                hero.length ? "logo" : "logo-only text-center"
+                              }
+                            >
+                              <NeumorphicContainer
+                                containerclassName="rounded-circle p-1px"
+                                subcontainerclasses="rounded-circle p-1 d-flex"
+                                isLayer={false}
+                              >
+                                <img
+                                  className="img-fluid"
+                                  src={data.ImageLocation}
+                                  alt=""
+                                />
+                              </NeumorphicContainer>
+                            </div>
+                          ) : (
+                            ""
+                          )}
+
+                          <div
+                            className={
+                              data.ImageLocation && !hero.length
+                                ? "container text-center"
+                                : "container"
+                            }
+                          >
+                            <div
+                              className={
+                                hero.length && data.ImageLocation
+                                  ? "mt-5"
+                                  : "mt-3"
+                              }
+                            >
+                              <h1>
+                                {headingText}{" "}
+                                <span>{spanText ? spanText : ""} </span>
+                              </h1>
+                              <h2>{data.Work}</h2>
+                              <h3>
+                                {data.Location}
+                                {data.Country ? `, ${data.Country}` : ""}
+                              </h3>
+                              {data.Bio.trim() ? (
+                                <NeumorphicContainer
+                                  containerclassName="round-25 mt-3"
+                                  subcontainerclasses="border-none mt-0 round-25 w-100"
+                                >
+                                  <div className="hero-detail">
+                                    <pre id="hero__para">
+                                      <TextLoader
+                                        text={data.Bio}
+                                        id="hero__para"
+                                        characterNumber="200"
+                                        btnClass="hero__btn"
+                                      />
+                                    </pre>
+                                  </div>
+                                </NeumorphicContainer>
+                              ) : (
+                                ""
+                              )}
+                            </div>
+                          </div>
+                        </section>
+                        <div className="TopBar d-none">
+                          {data.ImageLocation ? (
+                            <div
+                              className={
+                                hero.length ? "logo" : "logo-only text-center"
+                              }
+                            >
+                              <img
+                                className="img-fluid"
+                                src={data.ImageLocation}
+                                alt=""
+                              />
+                            </div>
+                          ) : (
+                            ""
+                          )}
+
+                          <h1>
+                            {headingText}{" "}
+                            <span>{spanText ? spanText : ""} </span>
+                          </h1>
+                          <a className="share">
+                            <FontAwesomeIcon icon={faArrowUpFromBracket} />
+                          </a>
+                        </div>
+                        <CardSection modeData={modeData} theme={theme} />
+                        <Footer
+                          theme={theme}
+                          mode={theme}
+                          userName={data.Name}
+                        />
+                      </div>
+                    </NeumorphicContainer>
+                  ) : (
+                    <div className="primary_container p-relative">
+                      <CSSTransition
+                        in={true}
+                        appear={true}
+                        timeout={1000}
+                        classNames={modeData === undefined ? "" : "slide"}
+                      >
+                        <Loader mode="home" />
+                      </CSSTransition>
                       <section className="hero">
                         {hero.length ? (
-                          <div className="slider border-none">
+                          <div className="slider border-none round-0 box-shadow-none">
                             <ImgSlider
                               settings={settings}
                               sliderImg={hero}
@@ -237,17 +385,11 @@ export default function Home() {
                               hero.length ? "logo" : "logo-only text-center"
                             }
                           >
-                            <NeumorphicContainer
-                              containerclassName="rounded-circle p-1px"
-                              subcontainerclasses="rounded-circle p-1 d-flex"
-                              isLayer={false}
-                            >
-                              <img
-                                className="img-fluid"
-                                src={data.ImageLocation}
-                                alt=""
-                              />
-                            </NeumorphicContainer>
+                            <img
+                              className="img-fluid"
+                              src={data.ImageLocation}
+                              alt=""
+                            />
                           </div>
                         ) : (
                           ""
@@ -263,7 +405,7 @@ export default function Home() {
                           <div
                             className={
                               hero.length && data.ImageLocation
-                                ? "mt-5"
+                                ? "mt-2rem"
                                 : "mt-3"
                             }
                           >
@@ -276,22 +418,24 @@ export default function Home() {
                               {data.Location}
                               {data.Country ? `, ${data.Country}` : ""}
                             </h3>
+
                             {data.Bio.trim() ? (
-                              <NeumorphicContainer
-                                containerclassName="round-25 mt-3"
-                                subcontainerclasses="border-none mt-0 round-25 w-100"
+                              <div
+                                className={
+                                  theme === "etyne" || theme === "dahwoo"
+                                    ? "d-none"
+                                    : "hero-detail"
+                                }
                               >
-                                <div className="hero-detail">
-                                  <pre id="hero__para">
-                                    <TextLoader
-                                      text={data.Bio}
-                                      id="hero__para"
-                                      characterNumber="200"
-                                      btnClass="hero__btn"
-                                    />
-                                  </pre>
-                                </div>
-                              </NeumorphicContainer>
+                                <pre id="hero__para">
+                                  <TextLoader
+                                    text={data.Bio}
+                                    id="hero__para"
+                                    characterNumber="200"
+                                    btnClass="hero__btn"
+                                  />
+                                </pre>
+                              </div>
                             ) : (
                               ""
                             )}
@@ -318,135 +462,30 @@ export default function Home() {
                         <h1>
                           {headingText} <span>{spanText ? spanText : ""} </span>
                         </h1>
-                        <a className="share">
-                          <FontAwesomeIcon icon={faArrowUpFromBracket} />
-                        </a>
+                        <RWebShare
+                          data={{
+                            url: window.location.href,
+                          }}
+                        >
+                          <button className="share cursor_pointer">
+                            <FontAwesomeIcon icon={faArrowUpFromBracket} />
+                          </button>
+                        </RWebShare>
                       </div>
-                      <CardSection modeData={modeData} theme={theme} />
-                      <Footer theme={theme} mode={theme} userName={data.Name} />
+                      {theme === "etyne" || theme === "dahwoo" ? (
+                        <CardSection
+                          modeData={modeData}
+                          theme={theme}
+                          heroData={data.Bio}
+                        />
+                      ) : (
+                        <CardSection modeData={modeData} theme={theme} />
+                      )}
+
+                      <Footer mode={mode} userName={data.Name} />
                     </div>
-                  </NeumorphicContainer>
-                ) : (
-                  <div className="primary_container p-relative">
-                    <section className="hero">
-                      {hero.length ? (
-                        <div className="slider border-none round-0 box-shadow-none">
-                          <ImgSlider
-                            settings={settings}
-                            sliderImg={hero}
-                            className="round-0"
-                            border="slick-list-border-0"
-                          />
-                        </div>
-                      ) : (
-                        ""
-                      )}
-                      {data.ImageLocation ? (
-                        <div
-                          className={
-                            hero.length ? "logo" : "logo-only text-center"
-                          }
-                        >
-                          <img
-                            className="img-fluid"
-                            src={data.ImageLocation}
-                            alt=""
-                          />
-                        </div>
-                      ) : (
-                        ""
-                      )}
-
-                      <div
-                        className={
-                          data.ImageLocation && !hero.length
-                            ? "container text-center"
-                            : "container"
-                        }
-                      >
-                        <div
-                          className={
-                            hero.length && data.ImageLocation
-                              ? "mt-2rem"
-                              : "mt-3"
-                          }
-                        >
-                          <h1>
-                            {headingText}{" "}
-                            <span>{spanText ? spanText : ""} </span>
-                          </h1>
-                          <h2>{data.Work}</h2>
-                          <h3>
-                            {data.Location}
-                            {data.Country ? `, ${data.Country}` : ""}
-                          </h3>
-
-                          {data.Bio.trim() ? (
-                            <div
-                              className={
-                                theme === "etyne" || theme === "dahwoo"
-                                  ? "d-none"
-                                  : "hero-detail"
-                              }
-                            >
-                              <pre id="hero__para">
-                                <TextLoader
-                                  text={data.Bio}
-                                  id="hero__para"
-                                  characterNumber="200"
-                                  btnClass="hero__btn"
-                                />
-                              </pre>
-                            </div>
-                          ) : (
-                            ""
-                          )}
-                        </div>
-                      </div>
-                    </section>
-                    <div className="TopBar d-none">
-                      {data.ImageLocation ? (
-                        <div
-                          className={
-                            hero.length ? "logo" : "logo-only text-center"
-                          }
-                        >
-                          <img
-                            className="img-fluid"
-                            src={data.ImageLocation}
-                            alt=""
-                          />
-                        </div>
-                      ) : (
-                        ""
-                      )}
-
-                      <h1>
-                        {headingText} <span>{spanText ? spanText : ""} </span>
-                      </h1>
-                      <RWebShare
-                        data={{
-                          url: window.location.href,
-                        }}
-                      >
-                        <button className="share cursor_pointer">
-                          <FontAwesomeIcon icon={faArrowUpFromBracket} />
-                        </button>
-                      </RWebShare>
-                    </div>
-                    {theme === "etyne" || theme === "dahwoo" ? (
-                      <CardSection
-                        modeData={modeData}
-                        theme={theme}
-                        heroData={data.Bio}
-                      />
-                    ) : (
-                      <CardSection modeData={modeData} theme={theme} />
-                    )}
-
-                    <Footer mode={mode} userName={data.Name} />
-                  </div>
-                )}
+                  )}
+                </>
               </CSSTransition>
             )}
           </>
