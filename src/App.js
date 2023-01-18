@@ -10,9 +10,20 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <iframe
+                  className="flax"
+                  title="flax"
+                  src="http://flax-ai-static-website.s3-website.ap-south-1.amazonaws.com/"
+                ></iframe>
+              </>
+            }
+          />
           <Route path="/:linkType/:userId" element={<Home />} />
           <Route path="/:userMode" element={<HomeMode />} />
-          {/* <Route path="/test" element={<MetaDecorator />} /> */}
         </Routes>
       </BrowserRouter>
     </>

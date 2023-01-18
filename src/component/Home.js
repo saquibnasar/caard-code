@@ -136,14 +136,14 @@ export default function Home() {
                     isLayer={true}
                   >
                     <div className="primary_container round-25 p-relative h-100vh">
-                      <CSSTransition
+                      {/* <CSSTransition
                         in={true}
                         appear={true}
                         timeout={1000}
                         classNames={modeData === undefined ? "" : "slide"}
                       >
                         <Loader mode="home" />
-                      </CSSTransition>
+                      </CSSTransition> */}
                       <div className="TopBar d-none">
                         {data.ImageLocation ? (
                           <div
@@ -178,14 +178,14 @@ export default function Home() {
                   </NeumorphicContainer>
                 ) : (
                   <div className="primary_container p-relative h-100vh">
-                    <CSSTransition
+                    {/* <CSSTransition
                       in={true}
                       appear={true}
                       timeout={1000}
                       classNames={modeData === undefined ? "" : "slide"}
                     >
                       <Loader mode="home" />
-                    </CSSTransition>
+                    </CSSTransition> */}
                     <div className="TopBar d-none">
                       {data.ImageLocation ? (
                         <div
@@ -235,14 +235,14 @@ export default function Home() {
                       isLayer={true}
                     >
                       <div className="primary_container round-25 p-relative">
-                        <CSSTransition
+                        {/* <CSSTransition
                           in={true}
                           appear={true}
                           timeout={1000}
                           classNames={modeData === undefined ? "" : "slide"}
                         >
                           <Loader mode="home" />
-                        </CSSTransition>
+                        </CSSTransition> */}
                         <section className="hero">
                           {hero.length ? (
                             <div className="slider border-none">
@@ -358,14 +358,14 @@ export default function Home() {
                     </NeumorphicContainer>
                   ) : (
                     <div className="primary_container p-relative">
-                      <CSSTransition
+                      {/* <CSSTransition
                         in={true}
                         appear={true}
                         timeout={1000}
                         classNames={modeData === undefined ? "" : "slide"}
                       >
                         <Loader mode="home" />
-                      </CSSTransition>
+                      </CSSTransition> */}
                       <section className="hero">
                         {hero.length ? (
                           <div className="slider border-none round-0 box-shadow-none">
